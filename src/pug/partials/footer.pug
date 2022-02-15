@@ -1,0 +1,77 @@
+include ../base/variables/footer.pug
+
+mixin itemLinkFooter(item)
+    li.link-item
+        a(href="#")!= item
+
+mixin linkList(array)
+    ul.link 
+        each item in array
+            +itemLinkFooter(item)
+
+mixin footer
+    footer.footer
+        .footer__main
+            .container
+                .footer__top
+                    .row 
+                        .col-sm-12.col-md-4 
+                            span.icon
+                                i.fas.fa-th-large
+                            p.footer__title= aboutUs.title
+                            ul.link
+                                each link in aboutUs.link
+                                    li.link-item
+                                        - const { icon, text } = link
+                                        a(href='#')
+                                            i(class=icon)
+                                            span=text
+
+                        each item in footerMain
+                            .col-sm-12.col-md-2
+                                span.icon
+                                    i.fas.fa-th-large
+                                p.footer__title= item.title
+                                ul.link 
+                                    each link in item.link
+                                        li.link-item
+                                            if (link.length)
+                                                a(href='#')=link
+                                            else
+                                                - const { icon, title } = link
+                                                a(href='#')
+                                                    i(class=icon)
+                                                    span=title
+
+                .footer__bottom
+                    .row 
+                        .col-sm-12.col-md-6
+                            .footer__payment 
+                                p.title Thanh toán:
+                                .payment-item
+                                    each image in footerPayment
+                                        img(src=`../assets/images/payments/${image}` alt="Payment")
+                        .col-sm-12.col-md-6 
+                            .footer__hotline
+                                p.title Giải đáp nhanh:
+                                .hotline-item 
+                                    .icon 
+                                        i.fas.fa-phone-alt 
+                                    .content 
+                                        p.text Tư vấn miễn phí (24/7)
+                                        span.phone 1900 650 650
+                                .hotline-item 
+                                    .icon 
+                                        i.fas.fa-comments
+                                    .content 
+                                        p.text Góp ý - phản hồi - thắc mắc
+                                        span.phone 1900 650 650
+
+        .footer__copy-right
+            .container
+                .content
+                    p Bản quyền thuộc về 
+                        a(href="#") Design Team. 
+                        |Phát triển bởi 
+                        a(href="#") Bizweb.
+                    +linkList(navigation)

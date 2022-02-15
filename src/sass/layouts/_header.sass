@@ -1,0 +1,209 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.header
+    &__top
+        background-color: $background-grey
+        border: 1px solid $border-color
+
+        .header__top-socials
+            display: none
+
+        .header__top-link
+            height: 50px
+            @include flex(space-around)
+
+            a
+                flex: 1
+                @include flex
+                @include pt-pb(16px, 16px)
+                @include title
+                @include transition
+                font-size: 1rem
+                color: $primary-color
+                &:hover
+                    color: $white
+                    background-color: $hover-color
+
+        @include screen(768px)
+            .header__top-socials
+                @include flex(flex-start)
+                height: 100%
+
+                li
+                    width: 50px
+                    height: 50px
+                    @include flex
+                    @include transition
+                    border: 1px solid $border-color
+                    i
+                        color: $primary-color
+
+                    &:first-child, &:hover
+                        background-color: $hover-color
+                        i
+                            color: $white
+
+            .header__top-link
+                justify-content: flex-end
+                height: 100%
+                a
+                    @include pt-pb(16px, 16px)
+
+        @include screen(1024px)
+            .header__top-link
+                a
+                    padding: 15px 20px
+                    border: 1px solid $border-color
+
+    &__bottom
+        .header__logo
+            @include flex
+
+            img
+                max-height: 90px
+                @include mt-mb(15px, 15px)
+
+        .header__list
+            .hotline
+                display: none
+
+            .search
+                position: relative
+                width: 100%
+                margin-bottom: 15px
+
+                input
+                    width: 100%
+                    color: $light-gray
+                    border: 1px solid $border-color
+                    border-radius: 50px
+                    @include pt-pb(15px, 15px)
+                    padding-left: 18px
+                    outline: none
+
+                input::placeholder
+                    color: $light-gray
+
+                button
+                    color: $light-gray
+                    background-color: $white
+                    position: absolute
+                    right: 16px
+                    top: 14px
+                    border: none
+                    outline: none
+
+        @include screen(768px)
+            .header__logo
+                display: block
+
+            .header__list
+                @include flex(flex-end)
+                height: 100%
+
+                .search
+                    width: 320px
+                    margin-bottom: 0
+
+        @include screen(1024px)
+            .header__list .hotline
+                display: block
+                margin-right: 60px
+
+                p
+                    @include title
+                    font-size: 1rem
+                    color: $hover-color
+
+                span
+                    color: $text-color
+                    font-size: 0.9rem
+    &__menu
+        .navbar
+            padding: 0
+            background-color: $background-black
+
+            ul.navbar-nav
+                width: 100%
+                position: relative
+                display: none
+
+                li.nav-item i
+                    font-size: 1.4rem
+
+                @include screen(1024px)
+                    display: flex
+
+            .menu-bars
+                .dropdown-toggle
+                    color: $white
+                    padding: 14px 30px
+
+                    i
+                        font-size: 1.4rem
+
+                    &::after
+                        display: none
+
+                ul.dropdown-menu.show
+                    @include flex(center, unset, column)
+                    background-color: $background-black
+                    width: 100%
+                    margin: 0
+                    padding: 0
+
+                    li a
+                        padding: 15px 30px
+                .cart
+                    right: 30px
+                    top: 18px
+
+                    &::before
+                        top: -6px
+                        right: -4px
+                        width: 16px
+                        height: 16px
+                    i
+                        font-size: 1.4rem
+                        color: $white
+
+                @include screen(1024px)
+                    display: none
+
+            li.nav-item
+                @include transition
+
+                &:first-child, &:hover
+                    background-color: $hover-color
+
+                a.nav-link
+                    @include title
+                    color: $white
+                    font-size: 1.1rem
+                    padding: 23px 30px
+                    &:hover
+                        color: $white
+
+            .cart
+                top: 0
+                right: 0
+                position: absolute
+
+                &:before
+                    content: attr(data-total-cart)
+                    position: absolute
+                    top: 16px
+                    right: 20px
+                    width: 18px
+                    height: 18px
+                    font-size: 12px
+                    color: $white
+                    background-color: $hover-color
+                    border-radius: 50px
+                    @include flex
+                    justify-content: center
+
+                &:hover::before
+                    color: $hover-color
+                    background-color: $white
