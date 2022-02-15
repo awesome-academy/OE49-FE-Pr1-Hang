@@ -1,0 +1,45 @@
+@mixin flex($justify-content: center, $align-items: center, $flex-direction: row, $flex-wrap: nowrap)
+    display: flex
+    justify-content: $justify-content
+    align-items: $align-items
+    flex-direction: $flex-direction
+    flex-wrap: $flex-wrap
+
+@mixin screen ($size)
+    @media screen and (min-width: $size)
+        @content
+
+@mixin pt-pb($top, $bottom)
+    padding-top: $top
+    padding-bottom: $bottom
+
+@mixin pl-pr($left, $right)
+    padding-left: $left
+    padding-right: $right
+
+@mixin mt-mb($top, $bottom)
+    margin-top: $top
+    margin-bottom: $bottom
+
+@mixin ml-mr($left, $right)
+    margin-left: $left
+    margin-right: $right
+
+@mixin title 
+    color: $title-color
+    font-size: 1.2rem
+    font-weight: $fw-medium
+    text-transform: uppercase
+
+@mixin text
+    color: $bold-gray
+    font-family: $secondary-font
+
+@mixin transition
+    transition: all .3s ease-in-out
+    -moz-transition: all .3s ease-in-out
+    -webkit-transition: all .3s ease-in-out
+    -o-transition: all .3s ease-in-out
+    -ms-transition: all .3s ease-in-out
+
+

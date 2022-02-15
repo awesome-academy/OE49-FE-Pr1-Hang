@@ -1,0 +1,57 @@
+include ../base/variables/header.pug
+
+mixin headerTopItem(className)
+    li.header__top-item
+        a.header__top-icon(href="#")
+            i(class= className)
+            
+mixin header 
+    header.header
+        .header__top 
+            .container 
+                .row 
+                    .col-md-9
+                        ul.header__top-socials 
+                            each item in socials
+                                +headerTopItem(item)
+                    .col-md-3
+                        .header__top-link 
+                            a.header__top-register(href="#") Đăng kí 
+                            a.header__top-login(href="#") Đăng nhập
+        .header__bottom 
+            .container
+                .row 
+                    .col-md-2 
+                        a.header__logo(href="#")
+                            img(src="../assets/images/logo.png" alt="logo image") 
+                    .col-md-10
+                        .header__list
+                            .hotline 
+                                p Hotline:
+                                span (04) 9500 9650 - (04) 9500 8850
+                            .hotline 
+                                p Đặt hàng nhanh:
+                                span (04) 9500 9650 - (04) 9500 8850
+                            .search 
+                                input(type="text", placeholder="Tìm kiếm...")
+                                button
+                                    i.fas.fa-search
+        .header__menu
+            nav.navbar.navbar-expand-sm
+                .container
+                    ul.navbar-nav
+                        each item in navigation
+                            li.nav-item
+                                a.nav-link(href='#')= item
+                        li.nav-item.cart(data-total-cart="0")
+                            a.nav-link(href='#')
+                                i.fas.fa-shopping-basket
+                    .menu-bars
+                        .btn.dropdown-toggle(data-toggle='dropdown')
+                            i.fas.fa-bars
+                        ul.dropdown-menu
+                            each item in navigation
+                                li.nav-item
+                                    a.nav-link(href='#')= item 
+                        a.cart(href='#' data-total-cart="0")
+                            i.fas.fa-shopping-basket

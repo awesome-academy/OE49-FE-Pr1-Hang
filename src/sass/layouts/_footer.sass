@@ -1,0 +1,112 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.footer
+    &__main
+        background-color: $background-grey
+        padding: 60px 10px 0px
+
+        .footer__title
+            @include title
+            display: inline
+            text-align: left
+            margin-bottom: 30px
+
+        span.icon
+            margin-right: 10px
+            i
+                font-size: 0.8rem
+                color: $hover-color
+
+                .footer::before
+                    position: absolute
+                    top: 8px
+
+        ul.link
+            @include mt-mb(20px, 40px)
+
+            li.link-item
+                @include pt-pb(12px, 12px)
+                a
+                    @include text
+                    font-weight: $fw-regular
+                    i
+                        margin-right: 10px
+
+        .footer__bottom
+            padding-bottom: 60px
+            border-top: 1px solid $border-color
+
+            @include screen(1024px)
+                margin-top: 20px
+
+            .title
+                @include mt-mb(20px, 20px)
+                @include text
+
+        .footer__payment img
+            padding-right: 10px
+
+        .footer__hotline
+            .hotline-item
+                display: inline-flex
+                align-items: center
+                margin-right: 45px
+                margin-bottom: 20px
+
+                .icon
+                    width: 60px
+                    height: 60px
+                    border: 2px solid $hover-color
+                    border-radius: 50px
+                    @include flex
+
+                    i
+                        color: $hover-color
+                        font-size: 1.5rem
+
+                .content
+                    margin-left: 10px
+
+                    .text
+                        @include text
+
+                    .phone
+                        color: $red
+                        font-size: 1.4rem
+                        font-weight: $fw-bold
+                        font-family: $secondary-font
+
+    &__copy-right
+        @include pl-pr(10px, 10px)
+        background-color: $title-color
+
+        .content
+            @include flex(center, center, column)
+            @include pt-pb(25px, 25px)
+
+            p
+                text-align: center
+                padding: 10px 50px
+                a
+                    color: $white
+
+            ul.link
+                @include flex(center, center, row, wrap)
+                margin-top: 10px
+
+                li.link-item
+                    margin: 5px 10px
+                    a
+                        color: $light-gray
+
+            @include screen(1024px)
+                @include flex(space-between, center, row)
+                padding: 0
+
+                ul.link
+                    margin-top: 0
+                    
+                    li.link-item
+                        @include pt-pb(15px, 15px)
+                        margin-left: 20px
