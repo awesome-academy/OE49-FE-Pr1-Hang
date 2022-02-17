@@ -1,0 +1,136 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.banner
+    @include mt-mb(30px, 20px)
+
+    &__slide
+        background-color: $background-slide
+        padding: 40px 15px
+        margin-right: 15px
+
+        .carousel-item
+            .sub-title
+                font-size: 1.2rem
+                font-weight: $fw-bold
+                color: $background-black
+                text-transform: uppercase
+
+            .title
+                font-size: 3.5rem
+                font-weight: $fw-bold
+                color: $hover-color
+                text-transform: uppercase
+
+            li
+                @include pt-pb(5px, 5px)
+                i
+                    color: $hover-color
+                    padding-right: 10px
+
+                span
+                    font-size: 0.9rem
+                    color: $background-black
+
+            .buy-now
+                text-transform: uppercase
+                color: $white
+                background-color: $hover-color
+                padding: 10px 20px
+                margin-top: 20px
+                margin-left: 10px
+                border: none
+
+        .carousel-indicators
+            bottom: -25px
+            li
+                width: 10px
+                height: 10px
+                border: none
+                background-color: $background-black
+
+        @include screen(1024px)
+            padding: 100px 50px
+            margin-right: 0px
+
+            .carousel-item   
+                .sub-title
+                    font-size: 1.5rem
+
+                .buy-now
+                    font-size: 1.3rem
+
+                img
+                    max-width: 280px
+
+                li
+                    @include pt-pb(8px, 8px)
+                    i
+                        font-size: 1.5rem
+                        padding-right: 10px
+
+                    span
+                        font-size: 1.4rem
+
+            .carousel-indicators
+                bottom: -60px
+
+    &__right
+        height: 100%
+        padding-left: 15px
+
+        @include screen(1024px)
+            padding-left: 0
+
+        ul
+            height: 100%
+            @include flex(space-evenly, center, column)
+
+            li
+                @include flex
+                @include pt-pb(20px, 20px)
+                height: 100%
+                border: 1px solid $border-color
+
+                @include screen(768px)
+                    @include pt-pb(9px, 9px)
+
+                @include screen(1024px)
+                    padding: 0
+                i
+                    @include pl-pr(30px, 30px)
+                    color: $hover-color
+                    font-size: 1.5rem
+
+                    @include screen(768px)
+                        @include pl-pr(8px, 8px)
+                        font-size: 0.9rem
+                    
+                    @include screen(1024px)
+                        @include pl-pr(30px, 30px)
+                        font-size: 1.5rem
+
+                &:first-child i
+                    transform: rotate(-45deg)
+                    -moz-transform: rotate(-45deg)
+                    -webkit-transform: rotate(-45deg)
+                    -o-transform: rotate(-45deg)
+
+        .title
+            @include title
+            margin-bottom: 10px
+
+            @include screen(768px)
+                font-size: 0.9rem
+
+            @include screen(1024px)
+                font-size: 1.2rem
+
+        .description
+            @include text
+
+            @include screen(768px)
+                font-size: 0.8rem
+
+            @include screen(1024px)
+                font-size: 1rem
