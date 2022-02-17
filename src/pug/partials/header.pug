@@ -1,7 +1,7 @@
 include ../base/variables/header.pug
 
 mixin headerTopItem(className)
-    li.header__top-item
+    li.header__top-item.transition
         a.header__top-icon(href="#")
             i(class= className)
             
@@ -16,8 +16,8 @@ mixin header
                                 +headerTopItem(item)
                     .col-md-3
                         .header__top-link 
-                            a.header__top-register(href="#") Đăng kí 
-                            a.header__top-login(href="#") Đăng nhập
+                            a.header__top-register.transition(href="#") Đăng kí 
+                            a.header__top-login.transition(href="#") Đăng nhập
         .header__bottom 
             .container
                 .row 
@@ -41,9 +41,9 @@ mixin header
                 .container
                     ul.navbar-nav
                         each item in navigation
-                            li.nav-item
+                            li.nav-item.transition
                                 a.nav-link(href='#')= item
-                        li.nav-item.cart(data-total-cart="0")
+                        li.nav-item.transition.cart(data-total-cart="0")
                             a.nav-link(href='#')
                                 i.fas.fa-shopping-basket
                     .menu-bars
@@ -51,7 +51,7 @@ mixin header
                             i.fas.fa-bars
                         ul.dropdown-menu
                             each item in navigation
-                                li.nav-item
+                                li.nav-item.transition
                                     a.nav-link(href='#')= item 
                         a.cart(href='#' data-total-cart="0")
                             i.fas.fa-shopping-basket

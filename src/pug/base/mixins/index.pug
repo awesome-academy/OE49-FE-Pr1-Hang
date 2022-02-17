@@ -1,0 +1,23 @@
+mixin descriptionSlide(text)
+  li 
+    i.far.fa-check-circle
+    span= text
+
+mixin slideItem 
+  .row
+    .col-8.col-md-7.pr-0
+      .content
+        span.sub-title Máy khoan đa năng
+        p.title Dewalt
+        ul.list-item 
+          each item in descriptions
+            +descriptionSlide(item)
+        button.buy-now Đặt hàng
+    .col-4.col-md-5.pl-0
+      .image 
+        img(src="../assets/images/slides/slide.jpg" alt="Image slide")
+
+mixin text(title, description)
+  .content 
+    h2.title= title 
+    p.description= description 
