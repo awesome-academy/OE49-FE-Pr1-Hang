@@ -21,3 +21,27 @@ mixin text(title, description)
   .content 
     h2.title= title 
     p.description= description 
+
+mixin sidebarItem(text)
+  li.transition
+    a.sidebar__link.transition(href="#")
+      i.fas.fa-th-large
+      span= text
+
+mixin headingTitle(title)
+  h1.heading-title
+    i.fas.fa-th-large
+    span= title
+
+mixin productType
+  ul.nav.product__type.d-none.d-lg-flex
+    each item in productType
+      li.nav-item.transition
+        a.nav-link(href='#')= item
+
+mixin productButtonArrow 
+  .button-arrow
+    button.button.button--black.button--left.transition
+      i.fas.fa-caret-left
+    button.button.button--right.button--white.transition
+      i.fas.fa-caret-right  

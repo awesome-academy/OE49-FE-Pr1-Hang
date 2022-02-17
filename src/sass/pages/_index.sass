@@ -53,7 +53,7 @@
             padding: 100px 50px
             margin-right: 0px
 
-            .carousel-item   
+            .carousel-item
                 .sub-title
                     font-size: 1.5rem
 
@@ -105,7 +105,7 @@
                     @include screen(768px)
                         @include pl-pr(8px, 8px)
                         font-size: 0.9rem
-                    
+
                     @include screen(1024px)
                         @include pl-pr(30px, 30px)
                         font-size: 1.5rem
@@ -134,3 +134,246 @@
 
             @include screen(1024px)
                 font-size: 1rem
+
+.featured-products
+    height: 100%
+
+    &__sidebar
+        padding-bottom: 30px
+        padding-right: 15px
+        height: 100%
+
+        @include screen(576px)
+            padding-right: 0
+
+        @include screen(1024px)
+            padding-right: 15px
+
+        ul.sidebar
+            display: none
+            height: 50%
+
+            @include screen(576px)
+                @include flex(space-around, flex-start, column)
+
+            @include screen(1024px)
+                height: 100%
+
+        li
+            height: 100%
+            width: 100%
+            padding-left: 20px
+            border: 1px solid $border-color
+
+            @include screen(576px)
+                padding: 0px 6px
+
+            @include screen(1024px)
+                padding-left: 20px
+
+            .sidebar__link
+                @include flex(flex-start)
+                font-family: $secondary-font
+                height: 100%
+                width: 100%
+
+                i
+                    padding-right: 10px
+
+            &:first-child, &:hover
+                background-color: $background-black
+                border-color: $background-black
+                a
+                    color: $hover-color
+
+    &__dropdown
+        width: 100%
+
+        @include screen(576px)
+            display: none
+
+        .dropdown-toggle
+            @include pt-pb(10px, 10px)
+            color: $hover-color
+            background-color: $background-black
+            padding-left: 20px
+            position: relative
+
+            &::after
+                position: absolute
+                top: 50%
+                right: 35px
+
+            i
+                margin-right: 10px
+
+        ul.dropdown-menu
+            @include pl-pr(20px, 10px)
+            width: 100%
+            padding-top: 0
+            border: none
+
+            li
+                @include pt-pb(10px, 10px)
+                margin-right: 15px
+
+                &:first-child
+                    display: none
+
+.new-products__list
+    .products__grid
+        padding-bottom: 40px
+
+        @include screen(768px)
+            @include gridColumn(auto auto auto, 20px)
+
+    .product-item:hover
+        margin-bottom: -40px
+        padding-bottom: 90px
+
+    .product__btn .button
+        padding: 10px
+
+.banner-middle__image
+    padding-top: 30px
+
+.best-sell-products
+    .wrapper
+        display: flex
+        flex-direction: column
+        height: 100%
+        padding-bottom: 30px
+
+    .product-item
+        width: 100%
+        height: 100%
+        margin-bottom: 30px
+
+        &:hover
+            margin-bottom: 0
+
+.banner-bottom
+    @include pt-pb(15px, 15px)
+
+    img
+        width: 100%
+
+.new-import-products__list
+    margin-bottom: 20px
+
+    @include screen(576px)
+        @include gridColumn
+
+.partners
+    background-color: $background-grey
+    margin-top: 30px
+
+    .wrapper
+        position: relative
+
+    &__direction-link
+        position: absolute
+        font-size: 1.5rem
+        top: 42%
+
+    .right
+        right: 0
+
+    &__image
+        img
+            display: block
+            margin: 15px auto
+            max-height: 145px
+
+    i
+        color: $text-color
+        font-size: 1.4rem
+
+    .products__grid
+        padding-bottom: 0
+
+    @include screen(576px)
+        .partners__list
+            @include gridColumn(auto auto auto auto auto, 0)
+
+.register
+    background-image: url("../../assets/images/background-image.png")
+    background-color: $title-color
+    @include pt-pb(60px, 60px)
+
+    &__text
+        @include pl-pr(40px, 40px)
+        font-size: 1.5rem
+        margin-bottom: 25px
+
+    &__input
+        @include pl-pr(20px, 20px)
+        font-size: 1.1rem
+        border-radius: 50px
+        margin-right: 10px
+        margin-bottom: 10px
+        border: none
+        outline: none
+        height: 50px
+        width: 100%
+
+    .button
+        height: 50px
+        width: 100%
+        border-radius: 50px
+        outline: none
+
+    @include screen(768px)
+        &__text
+            font-size: 1.5rem
+            margin-bottom: 25px
+
+        &__input
+            width: 400px
+            margin-bottom: 0
+
+        .button
+            width: 150px
+
+    @include screen(1024px)
+        &__text
+            font-size: 1.8rem
+
+        &__input
+            width: 615px
+            margin-bottom: 0
+
+        .button
+            width: 150px
+
+.product__intro
+    @include flex(space-between)
+    position: relative
+
+    .product__type
+        position: absolute
+        right: 120px
+
+        li
+            border: 1px solid $text-color
+            margin-left: 10px
+
+            &:first-child, &:hover
+                border-color: $hover-color
+                background-color: $hover-color
+                a
+                    color: $white
+.button-arrow
+    @include flex(flex-end)
+
+    .button 
+        padding: 6px 14px
+        margin-left: 5px
+        border: 1px solid $text-color
+
+        &:hover
+            color: $white
+            background-color: $background-black
+
+        i
+            font-size: 1.4rem

@@ -1,0 +1,6 @@
+mixin rating(rating)
+    -for (var i = 1; i <= rating; i++)
+        i.fas.fa-star
+        
+    -for (var i = rating; i < 5; i++)
+        i.far.fa-star

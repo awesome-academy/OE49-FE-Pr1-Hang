@@ -30,3 +30,149 @@ block content
                 li 
                   i(class= item.icon)
                   +text(item.title, item.description)      
+
+    section.featured-products 
+      .product__intro
+        +headingTitle('Sản phẩm nổi bật')
+        +productButtonArrow
+
+      .row 
+        .col-md-3.pr-0
+          aside.featured-products__sidebar
+            ul.sidebar
+              each item in sidebarItems
+                +sidebarItem(item)
+
+            .featured-products__dropdown
+              .dropdown-toggle(type='button' data-toggle='dropdown')
+                i.fas.fa-th-large
+                | Máy khoan, cắt CNC
+                span.caret
+              ul.dropdown-menu
+                each item in sidebarItems
+                  +sidebarItem(item)
+
+        .col-md-9
+          +carouselDesktop(featuredProductImages)
+
+          .featured-products__carousel
+            +carouselMobile('featured-product-1.png', featuredProductImages)
+
+    section.new-products
+      .product__intro
+        +headingTitle('Sản phẩm mới')
+        +productType
+        +productButtonArrow
+
+      .new-products__list
+        +carouselDesktop(newProductImages)
+        +carouselMobile('new-product-1.png', newProductImages)
+
+    section.banner-middle  
+      .row 
+        .col-md-6
+          .banner-middle__image
+            img(src='../assets/images/banners/banner-1.png', alt="banner image")
+        .col-md-6
+          .banner-middle__image
+            img(src='../assets/images/banners/banner-2.png', alt="banner image")
+
+    section.best-sell-products
+      .product__intro
+        +headingTitle('Sản phẩm bán chạy')
+        +productType
+        +productButtonArrow
+        
+      .best-sell-products__list
+        .carousel.d-none.d-sm-block(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              .row
+                .col-md-3
+                  .wrapper
+                    +productItem('featured-product-4.png')
+                    +productItem('featured-product-3.png')
+                .col-md-6
+                  .wrapper
+                    +productItem('best-sell-product.png')
+                .col-md-3
+                  .wrapper
+                    +productItem('featured-product-6.png')
+                    +productItem('featured-product-5.png')
+
+        +carouselMobile('best-sell-product.png', bestSellProducts)
+    
+    section.banner-bottom
+      .row
+        .col-md-12
+          .banner-bottom__mobile.d-sm-none
+            img(src='../assets/images/banners/banner.png', alt="banner image")
+
+          .banner-bottom__desktop.d-none.d-sm-block
+            img(src='../assets/images/banners/banner-3.png', alt="banner image")
+
+    section.new-import-products
+      .product__intro
+        +headingTitle('Hàng mới về')
+        +productButtonArrow
+
+      .new-import-products__carousel
+        .carousel.d-none.d-sm-block(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              .new-import-products__list
+                each item in newImportProducts
+                  +newProductItem(item)
+            .carousel-item
+              .new-import-products__list
+                each item in newImportProducts
+                  +newProductItem(item)
+
+      .new-import-products__list
+        .carousel.d-sm-none(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              +newProductItem('new-product-1.png')
+            each item in newImportProducts
+              .carousel-item
+                +newProductItem(item)
+
+  section.partners
+    .container.wrapper
+      .partners__image
+        #carouselPartners.carousel.d-none.d-sm-block(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              .partners__list
+                each item in partnerImages
+                  a.partners__link(href="#") 
+                    img(src=`../assets/images/partners/${item}`, alt="partner image")
+            .carousel-item
+              .partners__list
+                each item in partnerImages
+                  a.partners__link(href="#") 
+                    img(src=`../assets/images/partners/${item}`, alt="partner image")
+                    
+          +carouselControlPrev('#carouselPartners')
+          +carouselControlNext('#carouselPartners')
+
+        #carouselPartners.carousel.d-sm-none(data-ride='carousel')
+          .carousel-inner
+            .carousel-item.active
+              a.partners__link(href="#") 
+                img(src='../assets/images/partners/mamolog.png', alt="partner image")
+            each item in partnerImages
+              .carousel-item
+                a.partners__link(href="#") 
+                  img(src=`../assets/images/partners/${item}`, alt="partner image")
+
+          +carouselControlPrev('#carouselPartners')
+          +carouselControlNext('#carouselPartners')
+
+  section.register
+    .container 
+      .col-md-12.text-center 
+        p.register__text.text-white Đăng kí để nhận tin tức khuyến mại hàng tuần
+        form.register__form
+          input.register__input(type="text", placeholder="Nhập email của bạn")
+          button.button.button--yellow.transition(type="submit") Đăng kí 

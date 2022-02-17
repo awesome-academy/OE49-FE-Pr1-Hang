@@ -1,0 +1,24 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.products__grid
+    @include screen(768px)
+        @include gridColumn(auto auto)
+        padding-bottom: 30px
+
+    @include screen(1024px)
+        @include gridColumn(auto auto auto)
+
+.carousel-control-prev
+    @include screen(576px)
+        left: -60px
+
+    @include screen(1024px)
+        left: -120px
+
+.carousel-control-next
+    @include screen(576px)
+        right: -60px
+
+    @include screen(1024px)
+        right: -120px

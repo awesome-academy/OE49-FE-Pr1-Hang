@@ -1,0 +1,87 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.product
+    &__price
+        color: $red
+        font-size: 1.1rem
+        font-weight: $fw-bold
+
+    &__title
+        @include title
+        @include mt-mb(5px, 10px)
+
+    &__description
+        @include mt-mb(15px, 15px)
+        font-family: $secondary-font
+
+    &__rate
+        font-style: italic
+
+.product-item
+    @include pt-pb(10px, 80px)
+    border: 1px solid $border-color
+    position: relative
+    text-align: center
+    width: 100%
+    margin: 0
+
+    &:hover
+        @include box-shadow(1px 2px 10px, $border-color)
+        display: block
+        margin-bottom: -15px
+        padding-bottom: 80px
+
+        .product__btn
+            display: block
+
+    @include screen(576px)
+        &:hover
+            margin-bottom: 6px
+
+    @include screen(768px)
+        padding-bottom: 50px
+
+        &:hover
+            margin-bottom: -30px
+
+    .product__info
+        padding-top: 20px
+
+    .product__btn
+        padding-top: 20px
+        display: block
+        margin: auto
+        position: absolute
+        left: 0
+        right: 0
+
+        @include screen(768px)
+            display: none
+
+.new-product
+    border: 1px solid $border-color
+    padding: 25px 20px 40px
+
+    img
+        padding-bottom: 15px
+        display: block
+        margin: auto
+
+    @include screen(1024px)
+        img
+            float: left
+            margin-right: 20px
+
+    .product__info
+        margin-bottom: 20px
+
+    .product__price
+        font-size: 1.4rem
+
+    .product__btn
+        .button
+            padding: 10px 20px
+
+            &--yellow
+                margin-right: 8px
