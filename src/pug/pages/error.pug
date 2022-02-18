@@ -1,0 +1,17 @@
+extends ../layouts/default-layout
+
+block content 
+    section.error
+        .container
+            .row
+                .col-md-7
+                    .error__content
+                        h1.error__title 404 ERROR
+                        .error__description 
+                            p Chúng tôi không tìm thấy kết quả nào phù hợp với tìm kiếm của bạn. 
+                            p Xin vui lòng trở về trang chủ
+                        a(href="./").error__button.button.button--black.button--large.transition TRANG CHỦ
+
+                .col-md-5
+                    .error__image
+                        img(src="../assets/images/products/best-sell-product.png", alt="error")
