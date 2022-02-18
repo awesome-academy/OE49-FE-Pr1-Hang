@@ -1,0 +1,10 @@
+mixin breadcrumb({breadcrumbItems, currentPage})
+    nav(aria-label="breadcrumb")
+        .container
+            ol.breadcrumb.bg-white.pl-0.mb-0
+                each item in breadcrumbItems
+                    li.breadcrumb__item
+                        a.breadcrumb__link(href=item.link)= item.name
+                        span.breadcrumb__icon 
+                            i.fas.fa-caret-right
+                li.breadcrumb__item.active(aria-current="page") #{currentPage}

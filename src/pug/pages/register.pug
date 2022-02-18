@@ -1,0 +1,31 @@
+extends ../layouts/default-layout
+
+mixin formRow(columnLeft, columnRight)
+    .form-row
+        .col-md-6
+            +inputGroup(columnLeft)
+        .col-md-6
+            +inputGroup(columnRight)
+
+block content
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Đăng kí" })
+
+    section.register-page
+        .container 
+            .row
+                .col-md-12
+                    form(action="#")
+                        h2.form__title THÔNG TIN CÁ NHÂN
+                        +formRow("Họ và tên: ", "Email: ")
+                        +formRow("Số điện thoại: ", "Địa chỉ: ")
+
+                        .form__checkbox
+                            input(type="checkbox")#checkbox
+                            label(for="checkbox").font-italic Đăng ký nhận tin tức qua email
+
+                        h2.form__title THÔNG TIN ĐĂNG NHẬP
+                        +formRow("Địa chỉ: ", "Email: ")
+
+                        button.button-submit.button.button--black.transition(type= "button") Quay lại
+                        button.button-submit.button.button--yellow.transition(type= "submit") Đăng kí

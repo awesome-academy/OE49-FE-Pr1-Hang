@@ -1,0 +1,18 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.login
+    margin-bottom: 70px
+
+    &__checkbox
+        @include flex(space-between)
+
+        .forgot-password
+            color: $hover-color
+            font-size: 1.1rem
+            font-style: italic
+            text-decoration: underline
+
+    &__description 
+        font-size: 1.1rem
+        font-family: $secondary-font

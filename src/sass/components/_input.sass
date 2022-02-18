@@ -1,0 +1,25 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.form-input
+    margin-bottom: 0
+    position: relative
+    width: 100%
+
+    label
+        @include mt-mb(15px, 15px)
+        color: $title-color
+        font-size: 1.1rem
+        font-weight: $fw-bold
+        font-family: $secondary-font
+
+    i
+        color: $red
+        font-size: 0.6rem
+        font-family: 'Font Awesome 5 Free'
+        padding-left: 3px
+        position: absolute
+        top: 20px
+
+    input
+        height: 50px
