@@ -1,0 +1,28 @@
+mixin carouselDesktop(array)
+  .carousel.d-none.d-sm-block(data-ride='carousel')
+    .carousel-inner
+      .carousel-item.active
+        .products__grid
+          each item in array
+            +productItem(item)
+      .carousel-item
+        .products__grid
+          each item in array
+            +productItem(item)
+
+mixin carouselMobile(activeItem, array)
+  .carousel.d-sm-none.w-100(data-ride='carousel')
+    .carousel-inner
+      .carousel-item.active
+        +productItem(activeItem)
+      each item in array
+        .carousel-item
+          +productItem(item)
+
+mixin carouselControlPrev(href)
+  a.carousel-control-prev(href= href role='button' data-slide='prev')
+    i.fas.fa-chevron-left
+
+mixin carouselControlNext(href)
+  a.carousel-control-next(href= href role='button' data-slide='next')
+    i.fas.fa-chevron-right

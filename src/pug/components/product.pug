@@ -1,0 +1,33 @@
+mixin productInfo 
+  .product__info
+    span.product__price 1.550.000 Đ
+    h2.product__title Máy khoan Black Decker
+    span.product__rate
+      +rating(4)
+      |&ensp; (12 đánh giá)
+
+mixin newProductInfo 
+  .product__info
+    h2.product__title Máy khoan Black Decker
+    span.product__rate 
+      +rating(4)
+      |&ensp; (12 đánh giá)
+    p.product__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo...
+    span.product__price 1.550.000 Đ
+
+mixin productButton
+  .product__btn
+    button.button.button--yellow.transition Mua ngay 
+    button.button.button--black.transition Xem chi tiết
+
+mixin productItem(image)
+  .product-item.transition
+    img(src=`../assets/images/products/${image}` alt="product image")
+    +productInfo
+    +productButton
+
+mixin newProductItem(image)
+  .new-product
+    img(src=`../assets/images/products/${image}` alt="new product image")
+    +newProductInfo
+    +productButton

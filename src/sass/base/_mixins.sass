@@ -5,6 +5,11 @@
     flex-direction: $flex-direction
     flex-wrap: $flex-wrap
 
+@mixin gridColumn($grid-template-columns: auto auto, $grid-gap: 30px)
+    display: grid
+    grid-template-columns: $grid-template-columns
+    grid-gap: $grid-gap
+
 @mixin screen ($size)
     @media screen and (min-width: $size)
         @content
@@ -34,3 +39,9 @@
 @mixin text
     color: $bold-gray
     font-family: $secondary-font
+
+@mixin box-shadow($value, $color)
+    box-shadow: $value $color
+    -moz-box-shadow: $value $color
+    -webkit-box-shadow: $value $color
+    -o-box-shadow: $value $color

@@ -1,0 +1,35 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.button
+    text-transform: uppercase
+    font-size: 1.1rem
+    padding: 6px 10px
+    border: none
+
+    &:focus
+        outline: none
+
+.button--yellow
+    color: $white
+    background-color: $hover-color
+
+    &:hover
+        color: $white
+        background-color: $background-black
+
+.button--black
+    color: $white
+    background-color: $background-black
+
+    &:hover
+        color: $white
+        background-color: $hover-color
+
+.button--white
+    color: $black
+    background-color: $white
+
+    &:hover
+        color: $white
+        background-color: $background-black

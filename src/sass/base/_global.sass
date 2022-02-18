@@ -1,16 +1,39 @@
 @import "../base/variables"
+@import "../base/mixins"
 
 html
     font-size: 13px
 
-    body 
-        font-family: $primary-font
-        font-weight: $fw-regular
-        font-style: normal
-        color: $text-color
+body
+    font-family: $primary-font
+    font-weight: $fw-regular
+    font-style: normal
+    color: $text-color
 
-        a
-            color: $text-color
-            &:hover
-                color: $hover-color
-                text-decoration: none
+a
+    color: $text-color
+
+    &:hover
+        color: $hover-color
+        text-decoration: none
+
+.transition
+    transition: all .3s ease-in-out
+    -moz-transition: all .3s ease-in-out
+    -webkit-transition: all .3s ease-in-out
+    -o-transition: all .3s ease-in-out
+    -ms-transition: all .3s ease-in-out
+
+.heading-title
+    @include mt-mb(30px, 25px)
+    font-size: 1.4rem
+    font-weight: $fw-bold
+    text-transform: uppercase
+    color: $title-color
+
+    i
+        color: $hover-color
+        margin-right: 10px
+
+    @include screen(1024px)
+        @include mt-mb(60px, 50px)
