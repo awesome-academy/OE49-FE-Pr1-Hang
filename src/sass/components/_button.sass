@@ -10,26 +10,30 @@
     &:focus
         outline: none
 
-.button--yellow
-    color: $white
-    background-color: $hover-color
-
-    &:hover
-        color: $white
-        background-color: $background-black
-
-.button--black
-    color: $white
-    background-color: $background-black
-
-    &:hover
+    &--yellow
         color: $white
         background-color: $hover-color
 
-.button--white
-    color: $black
-    background-color: $white
+        &:hover
+            color: $white
+            background-color: $background-black
 
-    &:hover
+    &--black
         color: $white
         background-color: $background-black
+
+        &:hover
+            color: $white
+            background-color: $hover-color
+
+    &--white
+        color: $black
+        background-color: $white
+
+        &:hover
+            color: $white
+            background-color: $background-black
+
+    &-submit
+        @include mt-mb(30px, 30px)
+        padding: 15px 30px

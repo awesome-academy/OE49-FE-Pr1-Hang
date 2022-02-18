@@ -30,7 +30,12 @@ function assetsTask() {
 }
 
 function serve() {
-  browserSync.init({ server: { baseDir: "./" } });
+  browserSync.init({ 
+    server: { 
+      baseDir: './', 
+      directory: true 
+    } 
+  });
   watch('src/sass/**/*.sass', sassTask);
   watch('src/pug/**/*.pug', htmlTask);
 }

@@ -1,0 +1,30 @@
+extends ../layouts/default-layout
+
+block content
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Đăng nhập" })
+
+    section.login
+        .container
+            .row
+                .col-md-6
+                    form(action="#")
+                        h2.form__title THÔNG TIN ĐĂNG NHẬP
+
+                        .form-row
+                            +inputGroup("Họ và tên: ")
+                            +inputGroup("Email: ")
+
+                        .login__checkbox
+                            .form__checkbox
+                                input(type="checkbox")#checkbox
+                                label(for="checkbox").font-italic Ghi nhớ đăng nhập
+                            a.forgot-password(href="#") Bạn quên mật khẩu ?
+                        
+                        button.button-submit.button.button--black.transition(type="submit") ĐĂNG NHẬP
+
+                .col-md-6
+                    h2.form__title BẠN CHƯA CÓ TÀI KHOẢN ?
+                    p.login__description Đăng ký tài khoản để mua hàng nhanh hơn. Theo dõi đơn đặt hàng, vận chuyển. Cập nhật các tin tức sự kiện và các chương trình giảm giá của chúng tối. 
+                    
+                    button.button-submit.button.button--yellow.transition(type= "button") ĐĂNG KÝ

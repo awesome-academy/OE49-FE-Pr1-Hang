@@ -1,0 +1,17 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.register-page
+        margin-bottom: 60px
+
+.form__title
+    @include title
+    @include mt-mb(30px, 30px)
+
+.form__checkbox
+    @include flex(flex-start)
+    @include mt-mb(15px, 15px)
+    font-size: 1.1rem
+
+    #checkbox
+        margin-right: 8px

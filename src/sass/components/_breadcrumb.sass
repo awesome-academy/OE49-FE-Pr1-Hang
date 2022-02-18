@@ -1,0 +1,14 @@
+@import "./base/variables"
+@import "./base/mixins"
+    
+.breadcrumb
+    @include pt-pb(30px, 30px)
+    border-bottom: 1px solid $border-color
+    font-size: 1.1rem
+    font-family: $secondary-font
+    
+    &__icon i 
+        @include pl-pr(10px, 10px)
+
+    .active
+        color: $title-color
