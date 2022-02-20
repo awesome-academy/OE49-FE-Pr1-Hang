@@ -1,0 +1,80 @@
+extends ../layouts/default-layout
+
+block content 
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    -var thead = ['STT', 'Sản phẩm', 'Thông tin', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Xóa']
+    -
+        var carts = [
+            {
+                product: "./assets/images/products/new-import-product-1.png",
+                name:"MÁY KHOAN, CẮT ĐA NĂNG CNC",
+                price: 2350000,
+                count:1
+            },
+            {
+                product: "./assets/images/products/product-cart.png",
+                name:"MÁY KHOAN, CẮT ĐA NĂNG CNC",
+                price: 2350000,
+                count:1
+            },
+            {
+                product: "./assets/images/products/featured-product-4.png",
+                name:"MÁY KHOAN, CẮT ĐA NĂNG CNC",
+                price: 2350000,
+                count:1
+            }
+        ]
+
+    -
+        var payment = [
+            {
+                title: 'Tổng tiền:',
+                price: 6850000 
+            },
+            {
+                title: 'Thuế(VAT):',
+                price: 685000 
+            },
+            {
+                title: 'Thanh toán:',
+                price: 7520000 
+            }
+        ]
+
+    +breadcrumb({ breadcrumbItems , currentPage: "Giỏ hàng" })
+
+    section.cart
+        .container
+            .cart__content
+                table.table.table-bordered
+                    thead
+                        tr
+                            each item in thead
+                                th(scope="col")= item
+
+                    tbody
+                        each item,index in carts
+                            tr
+                                th(scope="row")= index+1
+                                td.cart__image
+                                    img(src=item.product, alt="product")
+                                td= item.name
+                                td= `${item.price.toLocaleString('vi-VN')} Đ`
+                                td.cart__amount
+                                    input(type="number" min=1 value=1)
+                                td= `${(item.price * item.count).toLocaleString('vi-VN')} Đ`
+                                td.cart__delete
+                                    button.button(type="button")
+                                        i.fas.fa-times
+
+            .cart__buy
+                table.table.table-bordered
+                    tbody.text-right
+                        each item in payment
+                            tr
+                                th= item.title
+                                td= `${item.price.toLocaleString('vi-VN')} Đ`
+
+                .cart__button
+                    button.button.button--black.button--large.transition TIẾP TỤC MUA HÀNG
+                    button.button.button--yellow.button--large.transition THANH TOÁN

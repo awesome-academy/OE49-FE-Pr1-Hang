@@ -1,0 +1,68 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.cart
+    @include mt-mb(60px, 100px)
+
+    &__content
+        table
+            margin-bottom: 30px
+            
+            th, td
+                font-size: 0.9rem
+                font-weight: $fw-bold
+                text-align: center
+                vertical-align: middle
+                text-transform: uppercase
+                border-bottom: none
+                padding: 6px
+
+                @include screen(768px)
+                    font-size: 1.1rem
+                    padding: 10px
+
+    &__amount input
+        width: 30px
+        height: 30px
+        text-align: center
+        outline: none
+        border: 1px solid $border-color
+
+        @include screen(768px)
+            width: 40px
+            height: 40px
+            text-align: right
+
+    &__delete i
+        color: $red
+        font-size: 1rem
+
+        @include screen(768px)
+            font-size: 1.4rem
+
+    &__buy 
+        @include flex(center, flex-end, column)
+        
+        table
+            margin-bottom: 30px
+
+            @include screen(768px)
+                width: 50%
+
+            th, td
+                font-size: 0.8rem
+                font-weight: $fw-bold
+                color: $title-color
+                text-transform: uppercase
+                padding: 6px
+
+                @include screen(768px)
+                    font-size: 1.1rem
+                    padding: 10px
+
+            tr:last-child td
+                color: $red
+                font-size: 1rem
+
+                @include screen(768px)
+                    font-size: 1.4rem
