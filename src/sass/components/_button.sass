@@ -2,6 +2,7 @@
 @import "../base/mixins"
 
 .button
+    background-color: $white
     text-transform: uppercase
     font-size: 1.1rem
     padding: 6px 10px
@@ -38,4 +39,7 @@
         @include mt-mb(30px, 30px)
 
     &--large
-        padding: 15px 30px
+        padding: 6px 12px
+
+        @include screen(768px)
+            padding: 15px 30px

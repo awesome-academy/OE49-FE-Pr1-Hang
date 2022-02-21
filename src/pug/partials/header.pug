@@ -43,7 +43,7 @@ mixin header
                         each item in navigation
                             li.nav-item.transition
                                 a.nav-link(href='#')= item
-                        li.nav-item.transition.cart(data-total-cart="0")
+                        li.nav-item.transition.header__cart(data-total-cart="0")
                             a.nav-link(href='#')
                                 i.fas.fa-shopping-basket
                     .menu-bars
@@ -53,5 +53,5 @@ mixin header
                             each item in navigation
                                 li.nav-item.transition
                                     a.nav-link(href='#')= item 
-                        a.cart(href='#' data-total-cart="0")
+                        a.header__cart(href='#' data-total-cart="0")
                             i.fas.fa-shopping-basket
