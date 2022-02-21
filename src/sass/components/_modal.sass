@@ -1,0 +1,84 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.modal-subscribe 
+    position: fixed
+    inset: 0
+    z-index: 1
+    display: grid
+    place-items: center
+    background-color: rgb(255 255 255 / 0.4)
+    animation: show-popup 500ms ease-in-out
+
+.modal
+    &__content 
+        box-shadow: 0px 0px 6px $background-black
+        background-color: $border-color
+        background-image: url('../../assets/images/background-popup.png')
+        padding: 20px 30px
+        position: relative
+
+        @include screen(768px)
+            padding: 30px 40px
+
+        @include screen(1024px)
+            padding: 80px 100px
+
+    &__form
+        color: $title-color
+        text-align: center
+
+    &__exit  i
+        @include flex
+        top: 0
+        right: 0
+        position: absolute
+        height: 35px
+        width: 35px
+        font-size: 1.4rem
+        color: $hover-color
+        background-color: $background-black
+
+    &__title 
+        font-size: 1.8rem
+        margin-bottom: 25px
+
+        @include screen(768px)
+            font-size: 2rem
+
+        @include screen(768px)
+            font-size: 2.2rem
+
+    &__description 
+        font-family: $secondary-font
+        margin-bottom: 30px
+
+        @include screen(768px)
+            font-size: 1.1rem
+
+        @include screen(1024px)
+            font-size: 1.2rem
+
+    &__input 
+        height: 50px
+        font-size: 1.1rem 
+        font-family: $secondary-font
+        margin-bottom: 10px
+
+    &__link 
+        color: $white!important
+        font-size: 1.2rem
+        display: block
+        text-align: center
+
+#modal-subscribe 
+    display: none
+
+#modal-subscribe:checked ~ .modal-subscribe 
+    transform: scale(0)
+
+@keyframes show-popup
+    from 
+        transform: scale(0)
+    to 
+        transform: scale(1)

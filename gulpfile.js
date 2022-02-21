@@ -1,4 +1,5 @@
 const { src, dest, parallel, watch, series } = require("gulp"),
+  autoprefixer = require('gulp-autoprefixer'),
   concat = require("gulp-concat"),
   sass = require("gulp-sass")(require("sass")),
   pug = require("gulp-pug"),
@@ -13,6 +14,10 @@ const { sassFiles, htmlFiles } = FilesPath;
 function sassTask() {
   return src(FilesPath.sassFiles)
     .pipe(sass())
+    .pipe(autoprefixer({
+      overrideBrowserslist: ["last 2 versions"],
+			cascade: false
+		}))
     .pipe(concat("style.css"))
     .pipe(dest("assets/css"))
     .pipe(browserSync.stream());
