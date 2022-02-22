@@ -1,0 +1,18 @@
+mixin modalSubscribe
+    input#modal-subscribe(type='checkbox')
+    .modal-subscribe
+        .modal__content
+            label.modal__exit(for='modal-subscribe')
+                i.fas.fa-times  
+            .modal__form
+                h2.modal__title ĐĂNG KÝ NHẬN TIN TỨC CỦA CHÚNG TÔI
+                p.modal__description Bạn muốn nhanh chóng nhận các tin tức khuyển mại và ưu đãi lớn của chúng tôi hàng tuần ?
+                    br
+                    |Hãy đăng ký ngay theo form dưới đây
+                
+                input.modal__input.form-control.rounded-0(type="text" placeholder="Nhập email của bạn vào đây...")
+                a.modal__link.button.button--yellow.button--large.transition(href="#") ĐĂNG KÝ
+
+                .form__checkbox
+                    input(type="checkbox")#checkbox
+                    label(for="checkbox") Không hiển thị thông báo này

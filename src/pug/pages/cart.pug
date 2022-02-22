@@ -2,9 +2,9 @@ extends ../layouts/default-layout
 
 block content 
     -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
-    -var thead = ['STT', 'Sản phẩm', 'Thông tin', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Xóa']
+    -const thead = ['STT', 'Sản phẩm', 'Thông tin', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Xóa']
     -
-        var carts = [
+        const carts = [
             {
                 product: "./assets/images/products/new-import-product-1.png",
                 name:"MÁY KHOAN, CẮT ĐA NĂNG CNC",
@@ -26,7 +26,7 @@ block content
         ]
 
     -
-        var payment = [
+        const payment = [
             {
                 title: 'Tổng tiền:',
                 price: 6850000 
