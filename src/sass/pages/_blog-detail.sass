@@ -1,0 +1,39 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.blog
+    &-detail
+        @include mt-mb(30px, 70px)
+
+    &__image
+        @include mt-mb(40px, 40px)
+        text-align: center
+
+    &__bottom
+        @include pt-pb(50px, 50px)
+        @include flex(space-between)
+        flex-wrap: wrap
+        border-bottom: 1px solid $border-color
+
+        span
+            @include title
+            font-size: 1rem
+
+    &__tags
+        margin-bottom: 20px
+        
+        a.active
+            color: $hover-color
+
+    &__share
+        a
+            padding: 8px
+            margin-left: 5px
+            border: 1px solid $border-color
+            i
+                font-size: 15px
+                width: 15px
+
+        a.active, a:hover
+            color: $white
+            background-color: $hover-color
