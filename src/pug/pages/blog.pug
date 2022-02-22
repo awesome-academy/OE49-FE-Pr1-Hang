@@ -1,0 +1,57 @@
+extends ../layouts/default-layout
+
+block content
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Tin tức" })
+
+    section.blog
+        .container
+            .row 
+                .col-md-3 
+                    aside.blog__sidebar
+                        +category({ icon: 'fas fa-bars', title: 'DANH MỤC SẢN PHẨM' })
+                            each item in categoryProduct
+                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+                                
+                        ul.sidebar__content.category__news.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |DANH MỤC TIN TỨC
+                            each item in categoryNews
+                                li
+                                    a(href="#")= item
+
+                        .sidebar__content.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |THƯ VIỆN HÌNH ẢNH
+                            .sidebar__images 
+                                each item in newsImage
+                                    img(src= `./assets/images/blogs/${item}`)
+
+                        .sidebar__content.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |THẺ TAGS
+                            .sidebar__tags 
+                                each item in newsTag
+                                    span= item
+
+                .col-md-9 
+                    each item in blogs 
+                        article.article
+                            img(src= item.image alt="blog")
+                            .blog__content
+                                h2.blog__title= item.title
+                                .blog__meta 
+                                    span.blog__date.mr-5= item.date
+                                    span.blog__author.mr-5
+                                        i.fas.fa-user.mr-2
+                                        |Đăng bởi 
+                                        a(href="#")= item.author
+                                    span.blog__comment
+                                        i.fas.fa-comments.mr-2
+                                        |#{item.comment}
+                                p.blog__description= item.description
+                                    a(href="#") [Đọc tiếp]
+                    +pagination

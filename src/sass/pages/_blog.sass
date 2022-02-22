@@ -1,0 +1,66 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+ul.category__news li
+    @include pt-pb(20px, 20px)
+    border-top: 1px solid $border-color
+
+    &:first-child
+        border-top: 2px solid $hover-color
+
+.sidebar 
+    &__content 
+        margin-bottom: 35px
+
+    &__title
+        @include title
+        margin-bottom: 30px
+        i
+            color: $hover-color
+            margin-right: 10px
+
+    &__images 
+        @include gridColumn(auto auto auto, 8px)
+
+        img
+            width: 100%
+
+    &__tags 
+        display: flex
+        flex-wrap: wrap
+
+        span  
+            padding: 6px 12px
+            margin-right: 5px
+            margin-bottom: 5px
+            font-style: italic
+            border: 1px solid $border-color
+
+            &:first-child
+                color: $white
+                background-color: $background-black
+
+.blog  
+    @include mt-mb(30px, 80px)
+
+    .article 
+        padding-bottom: 40px
+        margin-bottom: 40px
+        border-bottom: 1px solid $border-color
+
+    &__title 
+        @include mt-mb(20px, 15px)
+        @include title
+
+    &__meta 
+        font-style: italic
+        font-family: $secondary-font
+
+    &__author a 
+        color: $hover-color
+
+    &__description 
+        font-family: $secondary-font
+        margin-top: 15px
+        a
+            color: $hover-color

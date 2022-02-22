@@ -1,0 +1,13 @@
+mixin categoryItem({ icon, title })
+    li.category-item.transition
+        a.category-link(href="#")
+            i(class=icon)
+            |#{title}
+
+mixin category({ icon, title })
+    nav
+        ul.category
+            h2.category-item 
+                i(class=icon)
+                |#{title}
+            block

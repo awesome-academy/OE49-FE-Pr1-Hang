@@ -1,0 +1,33 @@
+@import "../base/variables"
+@import "../base/mixins"
+
+.category
+    @include flex(space-around, flex-start, column)
+    margin-bottom: 40px
+
+    .category-item
+        width: 100%
+        padding: 10px 20px
+        color: $hover-color
+        border: 1px solid $border-color
+
+        @include screen(576px)
+            padding: 10px 5px
+            font-size: 0.8rem
+
+        @include screen(1024px)
+            padding: 20px
+            font-size: 1rem
+
+        .category-link
+            @include flex(flex-start)
+            font-family: $secondary-font
+
+        i
+            padding-right: 10px
+
+        &:first-child, &:hover
+            background-color: $background-black
+            border-color: $background-black
+            a
+                color: $hover-color
