@@ -1,0 +1,99 @@
+extends ../layouts/default-layout
+
+mixin blogItem(image)
+    .blog__image
+        img(src= `../assets/images/blogs/${image}` alt="blog")
+    .blog__description
+        p= blog.subContent
+        p= blog.content
+        block
+
+block content 
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    -const blogTags = ["máy cắt cnc", "máy in 3D", "công nghiệp", "hàn xì", "uốn thép"]
+    -
+        const blog = {
+            image: {
+                top: "blog-detail.png",
+                middle: "blog-detail-1.png",
+                bottom: "blog-detail-2.png",
+                },
+            title: "THẾ HỆ MÁY KHOAN CẮT CNC ĐẦU TIÊN ĐÃ ĐƯỢC TÁI SỬ DỤNG",
+            date: "Thứ năm, ngày 23/10/2015 8:00 AM",
+            author: "Design Team",
+            comment: "12 Bình luận",
+            subContent: "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure.", 
+            content: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.",
+            description: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt"
+        }
+
+    +breadcrumb({ breadcrumbItems , currentPage: "Tin tức" })
+
+    section.blog-detail
+        .container
+            .row 
+                .col-md-3 
+                    aside.blog__sidebar
+                        +category({ icon: 'fas fa-bars', title: 'DANH MỤC SẢN PHẨM' })
+                            each item in categoryProduct
+                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+                                
+                        ul.sidebar__content.category__news.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |DANH MỤC TIN TỨC
+                            each item in categoryNews
+                                li
+                                    a(href="#")= item
+
+                        .sidebar__content.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |THƯ VIỆN HÌNH ẢNH
+                            .sidebar__images 
+                                each item in newsImage
+                                    img(src= `./assets/images/blogs/${item}`)
+
+                        .sidebar__content.d-none.d-sm-block
+                            h2.sidebar__title 
+                                i.fas.fa-th-large
+                                |THẺ TAGS
+                            .sidebar__tags 
+                                each item in newsTag
+                                    span= item
+
+                .col-md-9 
+                    article.article
+                        img(src= `../assets/images/blogs/${blog.image.top}` alt="blog")
+                        .blog__content
+                            h2.blog__title= blog.title
+                            .blog__meta 
+                                span.blog__date.mr-5= blog.date
+                                span.blog__author.mr-5
+                                    i.fas.fa-user.mr-2
+                                    |Đăng bởi 
+                                    a(href="#")= blog.author
+                                span.blog__comment
+                                    i.fas.fa-comments.mr-2
+                                    |#{blog.comment}
+                            .blog__description
+                                p= blog.subContent
+                                p= blog.content
+
+                        +blogItem(blog.image.middle)
+                        +blogItem(blog.image.bottom)
+                            p= blog.description
+
+                        .blog__bottom
+                            .blog__tags 
+                                span TAGS: 
+                                a.font-italic.active(href="#") máy khoan
+                                each item in blogTags
+                                    a.font-italic(href="#")= `, ${item}`
+                            .blog__share
+                                span CHIA SẺ: 
+                                a.active(href="#")
+                                    i(class= socials[0])
+                                -for(var i =1; i < socials.length; i++)
+                                    a(href="#")
+                                        i(class= socials[i])
