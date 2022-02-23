@@ -13,7 +13,6 @@
         @include pt-pb(50px, 50px)
         @include flex(space-between)
         flex-wrap: wrap
-        border-bottom: 1px solid $border-color
 
         span
             @include title
@@ -37,3 +36,68 @@
         a.active, a:hover
             color: $white
             background-color: $hover-color
+
+.comment
+    &-item    
+        margin-bottom: 50px
+
+    &-reply
+        @include screen(768px)
+            margin-left: 120px
+
+    &__title
+        @include title
+        @include pt-pb(40px, 40px)
+        border-top: 1px solid $border-color
+
+    &__image  
+        margin-right: 20px
+        float: left
+
+        img
+            padding: 5px
+            border: 1px solid $border-color
+
+    &__name
+        @include title
+        margin-bottom: 12px
+
+    &__date 
+        color: $light-gray
+        font-style: italic
+
+    &__reply 
+        display: block
+        color: $hover-color
+        font-style: italic
+        text-decoration: underline
+
+        &:hover 
+            color: $text-color
+            text-decoration: underline
+
+        @include screen(768px)
+            float: right
+
+    &__content 
+        @include mt-mb(12px, 12px)
+        font-style: italic
+        overflow: hidden
+        text-overflow: ellipsis
+        display: -webkit-box
+        -webkit-line-clamp: 2
+        -webkit-box-orient: vertical
+
+    &__form    
+        label
+            @include mt-mb(20px, 20px)
+            color: $title-color
+            font-size: 1.1rem
+            font-weight: $fw-medium
+            font-family: $secondary-font
+
+        button
+            @include mt-mb(30px, 30px)
+
+    &__message
+        height: 160px
