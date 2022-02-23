@@ -1,0 +1,33 @@
+extends ../layouts/default-layout
+
+block content
+    -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Danh mục sản phẩm" })
+
+    section.product
+        .container
+            .row 
+                .col-md-3 
+                    aside.product__sidebar
+                        +category({ icon: 'fas fa-bars', title: 'DANH MỤC SẢN PHẨM' })
+                            each item in categoryProduct
+                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+
+                        +category({ icon: 'fas fa-dollar-sign', title: 'TÌM THEO MỨC GIÁ' })
+                            each item in categoryPrice
+                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+
+                        +category({ icon: 'fas fa-paint-brush', title: 'TÌM THEO MÀU SẮC' })
+                            each item in categoryColor
+                                +categoryItem({icon: item.icon, title: item.color})
+                        
+                        +category({ icon: 'fas fa-gift', title: 'SẢN PHẨM KHUYẾN MẠI' })
+                            each item in categoryProductSale
+                                li.category-item.category-sale.transition
+                                    a.category-link(href="#")
+                                        img.product__image(src=`../assets/images/products/${item.image}`)
+                                        .product__info
+                                            h2.product__title= item.title
+                                            span.product__price= item.price
+
+                .col-md-9
