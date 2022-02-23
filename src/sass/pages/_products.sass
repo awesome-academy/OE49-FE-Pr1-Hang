@@ -1,8 +1,10 @@
 @import "./base/variables"
 @import "./base/mixins"
 
+.breadcrumb
+    border-bottom: none    
 .product
-    @include mt-mb(30px, 70px)
+    margin-bottom: 20px
 
     .category-sale
         padding: 20px
@@ -42,3 +44,83 @@
 
             .product__price
                 font-size: 1rem
+
+    &-action
+        @include flex(flex-start)
+        @include pt-pb(5px, 20px)
+        margin-bottom: 40px
+        border-bottom: 1px solid $border-color
+        position: relative
+
+        .action__sort, .action__show
+            position: relative
+            margin-right: 15px
+            i
+                position: absolute
+                top: 12px
+                right: 10px
+        
+        .action__label
+            color: $title-color
+            font-size: 1.1rem
+            font-family: $secondary-font
+            margin-right: 10px
+
+        select
+            color: $text-color
+            border: 1px solid $border-color
+            padding: 10px 50px 10px 10px
+            outline: none
+            appearance: none
+
+    input#product-list:checked
+        ~ .products-list
+            display: block
+
+        ~ .product-grid
+            display: none
+
+        ~ .icon-list
+            color: $hover-color
+
+    input#product-grid:checked
+        ~ .product-grid
+            display: grid
+
+        ~ .product-list
+            display: none
+
+        ~ .icon-grid
+            color: $hover-color
+
+    label.icon-list, label.icon-grid
+        position: absolute
+        right: 15px
+        top: 5px
+
+    label.icon-list
+        right: 55px
+
+    i.icon-switch
+            font-size: 1.4rem
+            padding: 8px
+            margin-left: 5px
+            border: 1px solid $border-color
+
+    &-grid
+        @include gridColumn(auto auto, 15px)
+
+        @include screen(768px)
+            @include gridColumn
+
+        @include screen(1024px)
+            @include gridColumn(auto auto auto)
+
+    .new-product
+        margin-bottom: 30px
+
+        img
+            width: 180px
+
+    .pagination
+        @include mt-mb(60px, 60px)

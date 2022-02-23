@@ -19,7 +19,7 @@
         font-style: italic
 
 .product-item
-    @include pt-pb(10px, 80px)
+    @include pt-pb(10px, 65px)
     border: 1px solid $border-color
     position: relative
     text-align: center
@@ -36,6 +36,8 @@
             display: block
 
     @include screen(576px)
+        padding-bottom: 80px
+
         &:hover
             margin-bottom: 6px
 
@@ -49,15 +51,26 @@
         padding-top: 20px
 
     .product__btn
-        padding-top: 20px
-        display: block
+        padding-top: 3px
+        display: none
         margin: auto
         position: absolute
         left: 0
         right: 0
 
+        .button
+            width: 110px
+            margin-bottom: 3px
+
         @include screen(768px)
-            display: none
+            padding-top: 20px
+
+            .button--black
+                display: none
+
+        @include screen(1024px)
+            .button--black
+                display: inline-block
 
 .new-product
     border: 1px solid $border-color

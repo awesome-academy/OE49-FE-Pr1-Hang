@@ -15,6 +15,15 @@ mixin newProductInfo
     p.product__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore commo...
     span.product__price 1.550.000 Đ
 
+mixin productInfoDetail
+  .product__info
+    h2.product__title Máy khoan cnc 3d
+    span.product__rate 
+      +rating(4)
+      |&ensp; (12 đánh giá)
+    p.product__description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat occaecat cupidatat non proident modi tempora incidunt...
+    span.product__price 2.350.000 Đ
+
 mixin productButton
   .product__btn
     button.button.button--yellow.transition Mua ngay 
@@ -30,4 +39,10 @@ mixin newProductItem(image)
   .new-product
     img(src=`../assets/images/products/${image}` alt="new product image")
     +newProductInfo
+    +productButton
+
+mixin productListItem(image)
+  .new-product
+    img(src=`../assets/images/products/${image}` alt="new product image")
+    +productInfoDetail
     +productButton
