@@ -1,6 +1,27 @@
 extends ../layouts/default-layout
 
 block content
+    -
+        const productImage = [
+            'featured-product-1.png',
+            'featured-product-2.png',
+            'featured-product-3.png',
+            'featured-product-4.png',
+            'featured-product-5.png',
+            'featured-product-6.png',
+            'product-1.png',
+            'product-2.png',
+            'product-3.png',
+            'product-4.png',
+            'featured-product-3.png',
+            'featured-product-5.png',
+            'product-5.png',
+            'product-6.png',
+            'product-7.png',
+            'product-5.png',
+            'product-6.png',
+            'product-7.png'
+        ]
     -const breadcrumbItems = [{ link: "/", name: "Trang chủ" }]
     +breadcrumb({ breadcrumbItems , currentPage: "Danh mục sản phẩm" })
 
@@ -31,3 +52,35 @@ block content
                                             span.product__price= item.price
 
                 .col-md-9
+                    .product-action 
+                        .action__sort
+                            span.action__label Sắp xếp theo: 
+                            select(name="productsSort")
+                                option(selected value="product-name") Tên sản phẩm 
+                                option(value="product-new") Sản phẩm mới 
+                                option(value="product-hot") Sản phẩm bán chạy
+                            i.fas.fa-caret-down
+                        .action__show.d-none.d-sm-block
+                            span.action__label Show: 
+                            select(name="productsShow")
+                                option(value="9") 9
+                                option(selected value="18") 18
+                                option(value="27") 27
+                            i.fas.fa-caret-down
+
+                    input#product-list(type="radio", name="product-list" hidden)
+                    input#product-grid(type="radio", name="product-list" checked hidden)
+                    label.icon-list(for="product-list") 
+                        i.fas.fa-bars.icon-switch
+                    label.icon-grid(for="product-grid") 
+                        i.fas.fa-th.icon-switch
+
+                    .product-grid
+                        each item in productImage
+                            +productItem(item)
+
+                    .product-list
+                        each item in productImage
+                            +productListItem(item)
+                    
+                    +pagination
