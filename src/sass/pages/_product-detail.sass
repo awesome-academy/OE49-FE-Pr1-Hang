@@ -1,0 +1,211 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.breadcrumb
+    border-bottom: none
+
+.category-sale
+    padding: 20px
+
+    .product__image
+        margin-right: 10px
+
+    .product__title
+        font-size: 1rem
+        font-weight: $fw-bold
+
+    &:hover .product__title
+        color: $hover-color
+
+    @include screen(768px)
+        padding: 20px 4px
+
+        .product__image
+            margin-right: 6px
+            max-height: 50px
+
+        .product__title
+            font-size: 0.8rem
+
+        .product__price
+            font-size: 0.8rem
+
+    @include screen(1024px)
+        padding: 20px 8px
+
+        .product__image
+            margin-right: 10px
+            max-height: 100%
+
+        .product__title
+            font-size: 1rem
+
+        .product__price
+            font-size: 1rem
+
+.product
+    &-detail
+        border-bottom: none
+
+    &-wrapper
+        @include flex(flex-start, flex-start)
+
+    &__image
+        flex: 4
+        width: 100%
+        margin-right: 30px
+        margin-bottom: 30px
+
+        &--active
+            border-left: none
+            border-right: none
+
+        img
+            width: 100%
+
+    &__info
+        flex: 5
+
+    &__list-image
+        @include flex
+        margin-top: 5px
+
+        .item-image:not(:last-child)
+            margin-right: 5px
+
+    &__info-item
+        padding-bottom: 12px
+        margin-bottom: 12px
+        border-bottom: 1px solid $border-color
+
+        .product__size, .product__color
+            position: relative
+            i
+                position: absolute
+                right: 15px
+                bottom: 10px
+
+        label
+            color: $title-color
+            font-weight: $fw-medium
+            margin-bottom: 10px
+
+        select
+            color: $text-color
+            border: 1px solid $border-color
+            padding: 10px 50px 10px 10px
+            width: 100%
+            outline: none
+            appearance: none
+
+            @include screen(768px)
+                padding-right: 25px
+
+            @include screen(1024px)
+                padding-right: 50px
+
+        .product__title
+            font-size: 1.8rem
+            margin-top: 0
+
+            @include screen(768px)
+                font-size: 1.4rem
+
+            @include screen(1024px)
+                font-size: 1.8rem
+
+        .product__comment
+            color: $title-color
+            text-decoration: underline
+            font-family: $secondary-font
+            font-weight: $fw-bold
+            padding-left: 15px
+            margin-left: 15px
+            border-left: 1px solid $text-color
+
+            &:hover
+                text-decoration: underline
+                color: $hover-color
+
+        .product__price
+            font-size: 1.6rem
+            margin-top: 10px
+
+            @include screen(768px)
+                font-size: 1.2rem
+
+            @include screen(1024px)
+                font-size: 1.6rem
+
+    &__classify
+        @include gridColumn(auto auto 10px)
+
+        @include screen(768px)
+            grid-gap: 10px
+            
+        @include screen(1024px)
+            grid-gap: 30px
+
+    &__info__bottom
+        @include flex(flex-start)
+        margin-bottom: 10px
+
+        input
+            width: 80px
+            height: 36px
+            padding: 10px
+            font-size: 1.1rem
+            text-align: center
+            outline: none
+            appearance: none
+            border: 1px solid $border-color
+            &::-webkit-inner-spin-button
+                appearance: none
+                color: red
+                text-shadow: none
+                -webkit-text-fill-color: initial
+        span
+            padding: 17px 15px
+            margin-right: 10px
+            position: relative
+            border: 1px solid $border-color
+            i
+                position: absolute
+                left: 10px
+
+            i.fa-caret-up
+                top: 5px
+
+            i.fa-caret-down
+                bottom: 5px
+        button
+            padding: 8px 20px
+
+.product-detail__tab 
+    margin-top: 30px
+
+    .nav-link
+        color: $title-color
+        font-size: 1.1rem
+        font-weight: $fw-bold
+        text-transform: uppercase
+        padding: 8px 10px
+        border: 1px solid $border-color
+
+        @include screen(768px)
+            padding: 10px 15px
+
+        @include screen(1024px)
+            padding: 20px 30px
+
+    .nav-link.active, .nav-link:hover
+        color: $hover-color
+        background-color: $background-black
+        border-color: $background-black
+
+    .tab-content
+        padding: 20px 30px 40px 20px
+        border: 1px solid $border-color
+        p
+            margin-bottom: 20px
+            text-align: justify
