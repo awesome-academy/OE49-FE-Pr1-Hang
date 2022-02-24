@@ -1,0 +1,108 @@
+extends ../layouts/default-layout
+
+block content
+    -
+        const imageProductDetail = [
+            'product-detail-1.png', 
+            'product-detail-2.png', 
+            'product-detail-3.png', 
+            'product-detail-4.png', 
+            'product-detail-5.png'
+        ]
+    -
+        const productTabContent = [
+            'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.',
+            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.',
+            'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. ',
+            'Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer enim purus, posuere at ultricies eu, placerat a felis. Suspendisse aliquet urna pretium eros convallis interdum. Quisque in arcu id dui vulputate mollis eget non arcu. Aenean et nulla purus.'
+        ]
+        
+    -const breadcrumbItems = [{ link: "/index.html", name: "Trang chủ" },{ link: "/product.html", name: "Danh mục sản phẩm" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Máy khoan CNC 3D" })
+
+    section.product-detail
+        .container
+            .row 
+                .col-md-3 
+                    aside.product__sidebar
+                        +category({ icon: 'fas fa-bars', title: 'DANH MỤC SẢN PHẨM' })
+                            each item in categoryProduct
+                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+                        
+                        +category({ icon: 'fas fa-gift', title: 'SẢN PHẨM KHUYẾN MẠI' })
+                            each item in categoryProductSale
+                                li.category-item.category-sale.transition
+                                    a.category-link(href="#")
+                                        img.product__image(src=`../assets/images/products/${item.image}`)
+                                        .product__info
+                                            h2.product__title= item.title
+                                            span.product__price= item.price
+
+                .col-md-9
+                    .product-wrapper.d-block.d-sm-flex
+                        .product__image 
+                            img.product__image--active(src="../assets/images/products/product-detail.png" alt="product detail")
+                            ul.product__list-image 
+                                each item in imageProductDetail 
+                                    li.item-image 
+                                        img(src=`../assets/images/products/${item}` alt="product detail")
+                        
+                        .product__info
+                            .product__info-item
+                                h2.product__title Máy khoan cnc 3d
+                                span.product__rate
+                                    +rating(4)
+                                    |&ensp; (12 đánh giá)
+                                a.product__comment(href="#") Gửi bình luận của bạn
+                                p.product__price GNY: 2.350.000 Đ
+                            
+                            .product__info-item.d-sm-none.d-lg-block
+                                label(for="") Thông tin sản phẩm:
+                                p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercition ullamco laboris nisi ut aliquip ex ea commodo consequat...
+                            
+                            .product__info-item.product__classify
+                                .product__size
+                                    label(for="product-size") Size: 
+                                    select#product-size(name="product-size") 
+                                        option(selected disabled) --Chọn size--  
+                                        option(value="small") S 
+                                        option(value="medium") M
+                                        option(value="large") L 
+                                    i.fas.fa-caret-down
+
+                                .product__color
+                                    label(for="product-color") Màu sắc: 
+                                    select#product-color(name="product-color") 
+                                        option(selected disabled) --Chọn màu--  
+                                        option(value="red") Red 
+                                        option(value="white") White
+                                        option(value="black") Black 
+                                    i.fas.fa-caret-down
+
+                            .product__info__bottom
+                                input(type="number" min="1" value="1")
+                                span
+                                    i.fas.fa-caret-up
+                                    i.fas.fa-caret-down
+                                button.button.button--yellow.transition Mua ngay
+                            img(src='../assets/images/products/share.png' alt="Share")
+                    
+                    .product-detail__tab 
+                        ul#productTab.nav.nav-pills(role='tablist')
+                            li.nav-item
+                                a#product-info-tab.nav-link.active.transition.rounded-0(data-toggle='pill' href='#product-info' type='button' role='tab' aria-controls='product-info' aria-selected='true') thông tin sản phẩm
+                            li.nav-item
+                                a#product-review-tab.nav-link.transition.rounded-0(data-toggle='pill' href='#product-review' type='button' role='tab' aria-controls='product-review' aria-selected='false') đánh giá - nhận xét
+                            li.nav-item.d-none.d-sm-block
+                                a#product-tags-tab.nav-link.transition.rounded-0(data-toggle='pill' href='#product-tags' type='button' role='tab' aria-controls='product-tags' aria-selected='false') thẻ tags
+                        
+                        #productTabContent.tab-content
+                            #product-info.tab-pane.fade.show.active(role='tabpanel' aria-labelledby='product-info-tab') 
+                                each item in productTabContent
+                                    p= item
+                            #product-review.tab-pane.fade(role='tabpanel' aria-labelledby='product-review-tab') 
+                                each item in productTabContent
+                                    p= item
+                            #product-tags.tab-pane.fade(role='tabpanel' aria-labelledby='product-tags-tab') 
+                                each item in productTabContent
+                                    p= item
