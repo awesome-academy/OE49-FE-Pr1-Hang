@@ -33,7 +33,7 @@
         padding-bottom: 80px
 
         .product__btn
-            display: block
+            transform: scale(1)
 
     @include screen(576px)
         padding-bottom: 80px
@@ -52,7 +52,8 @@
 
     .product__btn
         padding-top: 3px
-        display: none
+        transform: scale(0)
+        transition: all 0.3s ease-in-out
         margin: auto
         position: absolute
         left: 0
