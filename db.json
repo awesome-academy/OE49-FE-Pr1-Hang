@@ -1,0 +1,22 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "image": "image.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 15
+        },
+        {
+            "id": 2,
+            "image": "image.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 15
+        },
+        {
+            "id": 3,
+            "image": "image.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 15
+        }
+    ]
+}
