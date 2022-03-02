@@ -53,7 +53,7 @@ function serve() {
   });
   watch("src/sass/**/*.sass", sassTask);
   watch("src/pug/**/*.pug", htmlTask);
-  watch("src/js/*.js", jsTask);
+  watch("src/js/**/*.js", jsTask);
 }
 
 exports.sass = sassTask;

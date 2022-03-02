@@ -2,21 +2,45 @@
     "products": [
         {
             "id": 1,
-            "image": "image.png",
+            "image": "featured-product-1.png",
             "name": "MÁY KHOAN BLACK DECKER",
-            "price": 15
+            "price": 1550000,
+            "rating": 4
         },
         {
             "id": 2,
-            "image": "image.png",
+            "image": "featured-product-2.png",
             "name": "MÁY KHOAN BLACK DECKER",
-            "price": 15
+            "price": 1550000,
+            "rating": 4
         },
         {
             "id": 3,
-            "image": "image.png",
+            "image": "featured-product-3.png",
             "name": "MÁY KHOAN BLACK DECKER",
-            "price": 15
+            "price": 1550000,
+            "rating": 4
+        },
+        {
+            "id": 4,
+            "image": "featured-product-4.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 1550000,
+            "rating": 4
+        },
+        {
+            "id": 5,
+            "image": "featured-product-5.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 1550000,
+            "rating": 4
+        },
+        {
+            "id": 6,
+            "image": "featured-product-6.png",
+            "name": "MÁY KHOAN BLACK DECKER",
+            "price": 1550000,
+            "rating": 4
         }
     ]
 }
