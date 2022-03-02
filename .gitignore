@@ -106,5 +106,8 @@ dist
 #CSS
 assets/css/
 
+#JS
+assets/js/
+
 #Html
 *.html

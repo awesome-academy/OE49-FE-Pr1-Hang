@@ -11,7 +11,9 @@
     "sass": "^1.49.7"
   },
   "scripts": {
-    "gulp": "gulp serve"
+    "gulp": "gulp serve",
+    "api": "json-server db.json -w -p 4000",
+    "dev": "npm-run-all -p gulp api"
   },
   "dependencies": {
     "json-server": "^0.17.0"
