@@ -2,7 +2,11 @@
 @import "./base/mixins"
 
 .cart
-    @include mt-mb(60px, 100px)
+    @include mt-mb(0px, 100px)
+
+    &__empty  
+        display: none
+        font-size: 1.2rem
 
     &__content
         table

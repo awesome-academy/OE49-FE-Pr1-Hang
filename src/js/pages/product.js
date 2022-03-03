@@ -1,8 +1,8 @@
 import { formatMoney } from "../utils.js";
 
-export function loadData() {
-  const PRODUCT_API_URL = "http://localhost:4000/products";
+export const PRODUCT_API_URL = "http://localhost:4000/products";
 
+export function loadData() {
   fetch(PRODUCT_API_URL)
     .then((response) => response.json())
     .then((data) => {
@@ -14,18 +14,19 @@ export function loadData() {
         let productPrice = createElement('span', { className: "product__price", textContent: formatMoney(product.price)});
         let productTitle = createElement('h2', { className: "product__title", textContent: product.name});       
         let productRate = createElement('span', { className: "product__rate"});
-        
+        let productButton = createElement('div', { className: "product__btn"});
+        let buttonBuyNow = createElement('button', { className: "button button--yellow transition", textContent: "Mua ngay"});
+        buttonBuyNow.addEventListener("click", () => addToCart({id: product.id, image: product.image, name: product.name, price: product.price, quantity: 1}));
+        let buttonDetail = createElement('button', { className: "button button--black transition", textContent: "Xem chi tiết"});
+    
         let stars = rating( product.rating );
         stars.forEach( star => productRate.appendChild(star));
         productRate.innerHTML  += '(12 đánh giá)';
 
-        productGrid.appendChild(productItem);
-        productItem.appendChild(productImage);
-        productItem.appendChild(productInfo);
-        productItem.appendChild(productButton());
-        productInfo.appendChild(productPrice);
-        productInfo.appendChild(productTitle);
-        productInfo.appendChild(productRate);
+        productGrid && productGrid.appendChild(productItem);
+        productItem.append(productImage, productInfo, productButton);
+        productInfo.append(productPrice, productTitle, productRate);
+        productButton.append(buttonBuyNow, buttonDetail);
       });
     })
     .catch((error) => {
@@ -44,17 +45,20 @@ function rating(rating){
     return ratingInfo;
 }
 
-function productButton(){
-    let productButton = createElement('div', { className: "product__btn"});
-    let buttonBuyNow = createElement('button', { className: "button button--yellow transition", textContent: "Mua ngay"});
-    let buttonDetail = createElement('button', { className: "button button--black transition", textContent: "Xem chi tiết"});
-    
-    productButton.appendChild(buttonBuyNow);
-    productButton.appendChild(buttonDetail);
-    
-    return productButton;
+function addToCart(product){
+  let products = JSON.parse(localStorage.getItem('products')) || [];
+  let productIndex = products.findIndex((item) => item.id === product.id);
+
+  if(productIndex !== -1){
+    let newProduct = {...products[productIndex], quantity: products[productIndex].quantity + 1};
+    products[productIndex] = newProduct;
+  } else {
+    products.push(product);
+  }
+
+  localStorage.setItem('products', JSON.stringify(products));
 }
 
-function createElement(tagName, props) {
+export function createElement(tagName, props) {
   return Object.assign(document.createElement(tagName), props || {});
 }
