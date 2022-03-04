@@ -45,6 +45,7 @@ block content
 
     section.cart
         .container
+            h2.cart__empty Không có sản phẩm
             .cart__content
                 table.table.table-bordered
                     thead
@@ -52,29 +53,21 @@ block content
                             each item in thead
                                 th(scope="col")= item
 
-                    tbody
-                        each item,index in carts
-                            tr
-                                th(scope="row")= index+1
-                                td.cart__image
-                                    img(src=item.product, alt="product")
-                                td= item.name
-                                td= `${item.price.toLocaleString('vi-VN')} Đ`
-                                td.cart__amount
-                                    input(type="number" min=1 value=1)
-                                td= `${(item.price * item.count).toLocaleString('vi-VN')} Đ`
-                                td.cart__delete
-                                    button.button(type="button")
-                                        i.fas.fa-times
+                    tbody.cart__products
 
             .cart__buy
                 table.table.table-bordered
                     tbody.text-right
-                        each item in payment
-                            tr
-                                th= item.title
-                                td= `${item.price.toLocaleString('vi-VN')} Đ`
+                        tr
+                            th Tổng tiền:
+                            td.total-money
+                        tr
+                            th Thuế (VAT):
+                            td.tax-money
+                        tr
+                            th Thanh toán:
+                            td.total-payment
 
                 .cart__button
-                    button.button.button--black.button--large.transition TIẾP TỤC MUA HÀNG
+                    button.button.button--black.button--large.transition(onClick="location.href='./product.html'") TIẾP TỤC MUA HÀNG
                     button.button.button--yellow.button--large.transition THANH TOÁN
