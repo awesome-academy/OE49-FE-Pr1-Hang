@@ -1,5 +1,13 @@
 import { formatMoney } from "../utils.js";
 
+const cart = document.querySelector('.header__cart');
+const cartLink = cart.querySelector('a');
+cartLink.href = './cart.html';
+
+const products = JSON.parse(localStorage.getItem('products'));
+const sum = products && (products.reduce((sum, product) => sum + parseInt(product.quantity), 0))
+cart.setAttribute('data-total-cart', sum || 0);
+
 export const PRODUCT_API_URL = "http://localhost:4000/products";
 
 export function loadData() {
@@ -46,6 +54,9 @@ function rating(rating){
 }
 
 function addToCart(product){
+  let totalCart = cart.getAttribute('data-total-cart');
+  cart.setAttribute('data-total-cart', parseInt(totalCart) + 1);
+
   let products = JSON.parse(localStorage.getItem('products')) || [];
   let productIndex = products.findIndex((item) => item.id === product.id);
 

@@ -52,7 +52,13 @@ export function loadProductCart(){
 }
 
 function renderTotalMoney(totalMoney){
-    document.querySelector('.total-money').innerHTML = formatMoney(totalMoney);
-    document.querySelector('.tax-money').innerHTML = formatMoney(totalMoney * 10 / 100);
-    document.querySelector('.total-payment').innerHTML = formatMoney(totalMoney * 110 / 100);
+    let money = document.querySelector('.total-money');
+    let taxMoney = document.querySelector('.tax-money');
+    let shippingMoney = document.querySelectorAll('.shipping-money');
+    let totalPayment = document.querySelector('.total-payment');
+    let shippingFee = shippingMoney.length ?  30000 : 0;
+    shippingMoney.forEach(money => {money.innerHTML = formatMoney(shippingFee);})
+    if(money) money.innerHTML = formatMoney(totalMoney);
+    if(taxMoney) taxMoney.innerHTML = formatMoney(totalMoney * 10 / 100);
+    if(totalPayment) totalPayment.innerHTML = formatMoney(totalMoney * 110 / 100 + shippingFee);
 }
