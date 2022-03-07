@@ -1,0 +1,23 @@
+extends ../layouts/default-layout
+
+mixin formRow(columnLeft, columnRight)
+    .form-row
+        .col-md-6
+            +inputGroup(columnLeft.label, columnLeft.id)
+        .col-md-6
+            +inputGroup(columnRight.label, columnRight.id)
+            
+block content 
+    -const breadcrumbItems = [{ link: "./index.html", name: "Trang chủ" }, { link: "./cart.html", name: "Thông tin giỏ hàng" }]
+    +breadcrumb({ breadcrumbItems , currentPage: "Thông tin thanh toán" })
+
+    section.cart
+        .container
+            form(action="#" id="payment-form")
+                h2.form__title THÔNG TIN THANH TOÁN
+                p.error-message.text-danger.font-weight-bold.d-none Vui lòng điền đầy đủ thông tin
+                +formRow({label: "Họ và tên: ", id: "input-name"}, {label: "Email: ", id: "input-email"})
+                +formRow({label: "Số điện thoại: ", id: "input-phone"}, {label: "Địa chỉ: ", id: "input-address"})
+
+                a.button.button--yellow.button--large.transition.mt-5(href="./cart.html") QUAY LẠI GIỎ HÀNG
+                button.button.button--black.button--large.transition(type= "submit") THANH TOÁN

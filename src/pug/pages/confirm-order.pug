@@ -1,0 +1,82 @@
+extends ../layouts/default-layout
+
+mixin formRow(columnLeft, columnRight)
+    .form-row
+        .col-md-6
+            +inputGroup(columnLeft)
+        .col-md-6
+            +inputGroup(columnRight)
+
+block content 
+    -const thead = ['STT', 'Sản phẩm', 'Thông tin', 'Đơn giá', 'Số lượng', 'Thành tiền', 'Xóa']
+    -
+        const breadcrumbItems = [
+            { link: "./index.html", name: "Trang chủ" }, 
+            { link: "./cart.html", name: "Thông tin giỏ hàng" }, 
+            { link: "./payment.html", name: "Thông tin thanh toán" }
+        ]
+    +breadcrumb({ breadcrumbItems , currentPage: "Xác nhận" })
+
+    section.confirm-order
+        .container
+            .confirm__address
+                h2.confirm__title Địa chỉ nhận hàng
+                .shipping-address 
+                    .shipping-address-item
+                        label Người nhận: 
+                        p.name 
+                    .shipping-address-item
+                        label Điện thoại liên hệ: 
+                        p.phone 
+                    .shipping-address-item
+                        label Địa chỉ: 
+                        p.address 
+
+            .cart__content
+                h2.confirm__title Sản phẩm
+                table.table.table-bordered
+                    thead
+                        tr
+                            each item in thead
+                                th(scope="col")= item
+                    tbody.cart__products
+                    
+            .row 
+                .col-md-6 
+                    .payment-methods
+                        h2.confirm__title Phương thức thanh toán
+                        ul#payment-tab.nav.nav-pills(role='tablist')
+                            li.nav-item(role='presentation')
+                                button.active.transition.rounded-0(data-toggle='pill' data-target='#pay-later' aria-selected='true') Thanh toán khi nhận hàng
+                            li.nav-item(role='presentation')
+                                button.transition.rounded-0(data-toggle='pill' data-target='#pay-now' aria-selected='false') Thẻ tín dụng/Ghi nợ
+                        #payment-tabContent.tab-content
+                            #pay-later.tab-pane.fade.show.active(role='tabpanel') Phí thu hộ: 0 Đ. Ưu đãi về phí vận chuyển (nếu có) áp dụng cả với phí thu hộ.
+                            #pay-now.tab-pane.fade(role='tabpanel') 
+                                +formRow("Họ và tên chủ thẻ: ", "Số thẻ: ")
+                                +formRow("Ngày hết hạn(MM/YY): ", "Mã CVV: ")
+                .col-md-6 
+                    h2.confirm__title Thông tin vận chuyển
+                    span Giao hàng nhanh 
+                    span.shipping-money
+                    p Nhận hàng vào 10 Th03 - 14 Th03
+
+            .cart__buy
+                table.table.table-bordered
+                    tbody.text-right
+                        tr
+                            th Tổng tiền hàng:
+                            td.total-money
+                        tr
+                            th Thuế (VAT):
+                            td.tax-money
+                        tr
+                            th Phí vận chuyển:
+                            td.shipping-money
+                        tr
+                            th Tổng thanh toán:
+                            td.total-payment
+
+                .cart__button
+                    a.button.button--black.button--large.transition(href="./payment.html") QUAY LẠI
+                    a.button.button--yellow.button--large.transition.order(href="./product.html") ĐẶT HÀNG

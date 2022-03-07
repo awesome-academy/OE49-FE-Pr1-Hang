@@ -1,0 +1,52 @@
+@import "./base/variables"
+@import "./base/mixins"
+
+.breadcrumb
+    border-bottom: 1px solid $border-color
+
+.confirm
+    &-order
+        @include mt-mb(0px, 100px)
+        font-size: 1.2rem
+
+    &__title
+        @include mt-mb(30px, 30px)
+        color: $title-color
+        font-weight: $fw-medium
+        text-transform: uppercase
+
+    &__address
+        background-color: $background-grey
+        padding: 30px
+
+        .confirm__title
+            margin-top: 0
+
+.shipping-address
+    @include gridColumn(auto auto auto)
+
+    label
+        color: $title-color
+        margin-bottom: 10px
+
+.shipping-money
+    float: right
+    color: $title-color
+    border: none!important
+
+.payment-methods
+    margin-bottom: 50px
+
+    li.nav-item
+        width: 50%
+        margin-bottom: 30px
+
+    button.active
+        background-color: $background-black
+        color: $hover-color
+
+    button
+        padding: 10px
+        width: 100%
+        border: none
+        outline: none

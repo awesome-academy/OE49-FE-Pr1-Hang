@@ -1,5 +1,5 @@
-mixin inputGroup(label)
+mixin inputGroup(label, id= "input")
     .form-group.form-input
         label(for="input")= label
         i.fas.fa-star-of-life
-        input.form-control.rounded-0(type="text" id= "input")
+        input.form-control.rounded-0(type="text" id= id)
