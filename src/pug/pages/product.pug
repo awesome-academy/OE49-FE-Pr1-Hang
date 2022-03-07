@@ -55,17 +55,19 @@ block content
                     .product-action 
                         .action__sort
                             span.action__label Sắp xếp theo: 
-                            select(name="productsSort")
-                                option(selected value="product-name") Tên sản phẩm 
-                                option(value="product-new") Sản phẩm mới 
-                                option(value="product-hot") Sản phẩm bán chạy
+                            select(id="sort-options" name="productsSort")
+                                option(value="name-asc") Tên sản phẩm 
+                                option(value="price-asc") Giá tăng dần
+                                option(value="price-desc") Giá giảm dần
+                                option(value="featured-product") Sản phẩm nổi bật
                             i.fas.fa-caret-down
                         .action__show.d-none.d-sm-block
                             span.action__label Show: 
-                            select(name="productsShow")
-                                option(value="9") 9
+                            select(id="show-options" name="productsShow")
+                                option(value="3") 3
+                                option(value="6") 6
+                                option(value="12") 12
                                 option(selected value="18") 18
-                                option(value="27") 27
                             i.fas.fa-caret-down
 
                     input#product-list(type="radio", name="product-list" hidden)
