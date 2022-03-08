@@ -8,11 +8,23 @@ const products = JSON.parse(localStorage.getItem('products'));
 const sum = products && (products.reduce((sum, product) => sum + parseInt(product.quantity), 0))
 cart.setAttribute('data-total-cart', sum || 0);
 
-let limit, sort, order
+let limit, sort, order, name, minPrice, maxPrice, color
 
 export function showProducts(){
   let sortOptions  = document.getElementById('sort-options')
   let showOptions  = document.getElementById('show-options')
+  let filterOptions  = document.querySelectorAll('.category li a')
+
+  filterOptions && filterOptions.forEach(filter => {
+    filter.addEventListener('click', () => {
+      name = filter.getAttribute('data-title')
+      minPrice = filter.getAttribute('data-min-price')
+      maxPrice = filter.getAttribute('data-max-price')
+      color = filter.getAttribute('data-color')
+
+      return loadData()
+    })
+  })
 
   sortOptions && sortOptions.addEventListener('change', () => {
     let options = {
@@ -46,7 +58,11 @@ function loadData() {
       _page: 1,
       _limit: limit || 18,
       _sort: sort || 'name',
-      _order: order || 'asc'
+      _order: order || 'asc',
+      name_like: name || '',
+      price_gte: minPrice || 0,
+      price_lte: maxPrice || Infinity,
+      colors_like: color || ''
     }
     Object.keys(params).forEach(key => PRODUCT_API_URL.searchParams.append(key, params[key]))
 

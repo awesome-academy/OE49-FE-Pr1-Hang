@@ -23,34 +23,58 @@
     
 - 
     const categoryPrice = [
-        '0 - 200.000 Đ  (45)',
-        '200.000 Đ - 500.000 Đ (32)',
-        '500.000 Đ - 1000.000 Đ (27)',
-        '1000.000 Đ - 2000.000 Đ (16)',
-        'Trên 2000.000 Đ (9)'
+        {
+            price: '0 - 200.000 Đ  (45)',
+            minPrice: 0,
+            maxPrice: 200000,
+        },
+        {
+            price: '200.000 Đ - 500.000 Đ (32)',
+            minPrice: 200000,
+            maxPrice: 500000,
+        },
+        {
+            price: '500.000 Đ - 1000.000 Đ (27)',
+            minPrice: 500000,
+            maxPrice: 1000000,
+        },
+        {
+            price: '1000.000 Đ - 2000.000 Đ (16)',
+            minPrice: 1000000,
+            maxPrice: 2000000,
+        },
+        {
+            price: 'Trên 2000.000 Đ (9)',
+            minPrice: 2000000,
+        }
     ]
 
 -
     const categoryColor = [
         {
             icon: 'fas fa-square-full text-danger',
-            color: 'Màu đỏ  (45)'
+            color: 'Màu đỏ  (45)',
+            dataColor: 'red'
         },
         {
             icon: 'fas fa-square-full text-warning',
-            color: 'Màu vàng  (32)'
+            color: 'Màu vàng  (32)',
+            dataColor: 'yellow'
         },
         {
             icon: 'fas fa-square-full text-primary',
-            color: 'Màu xanh  (27)'
+            color: 'Màu xanh  (27)',
+            dataColor: 'blue'
         },
         {
             icon: 'fas fa-square-full text-muted',
-            color: 'Màu bạc  (16)'
+            color: 'Màu bạc  (16)',
+            dataColor: 'gray'
         },
         {
             icon: 'fas fa-square-full text-dark',
-            color: 'Màu đen  (9)'
+            color: 'Màu đen  (9)',
+            dataColor: 'black'
         }
     ]
 
