@@ -8,13 +8,54 @@ const products = JSON.parse(localStorage.getItem('products'));
 const sum = products && (products.reduce((sum, product) => sum + parseInt(product.quantity), 0))
 cart.setAttribute('data-total-cart', sum || 0);
 
-export const PRODUCT_API_URL = "http://localhost:4000/products";
+let limit, sort, order
 
-export function loadData() {
+export function showProducts(){
+  let sortOptions  = document.getElementById('sort-options')
+  let showOptions  = document.getElementById('show-options')
+
+  sortOptions && sortOptions.addEventListener('change', () => {
+    let options = {
+      'price-asc': {
+        sortBy: 'price'
+      },
+      'price-desc': {
+        sortBy: 'price',
+        order: 'desc'
+      },
+      'featured-product': {
+        sortBy: 'rating',
+        order: 'desc'
+      },
+    }
+    sort = options[sortOptions.value].sortBy
+    order = options[sortOptions.value].order
+    return loadData()
+  })
+
+  showOptions && showOptions.addEventListener('change', () => {
+    limit = showOptions.value
+    return loadData()
+  })
+  return loadData()
+}
+
+function loadData() {
+  let PRODUCT_API_URL = new URL("http://localhost:4000/products"),
+    params = {
+      _page: 1,
+      _limit: limit || 18,
+      _sort: sort || 'name',
+      _order: order || 'asc'
+    }
+    Object.keys(params).forEach(key => PRODUCT_API_URL.searchParams.append(key, params[key]))
+
   fetch(PRODUCT_API_URL)
     .then((response) => response.json())
     .then((data) => {
       let productGrid = document.querySelector('.product-grid');
+      if(productGrid) productGrid.innerHTML = ''
+
       data.map((product) => {
         let productItem = createElement('div', { className: "product-item transition"});
         let productImage = createElement('img', { src: `../assets/images/products/${product.image}`, alt: "product image"})

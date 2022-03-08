@@ -4,42 +4,126 @@
             "id": 1,
             "image": "featured-product-1.png",
             "name": "MÁY KHOAN BLACK DECKER",
-            "price": 1550000,
+            "price": 1500000,
             "rating": 4
         },
         {
             "id": 2,
             "image": "featured-product-2.png",
             "name": "MÁY KHOAN BLACK DECKER",
-            "price": 1550000,
-            "rating": 4
+            "price": 1450000,
+            "rating": 5
         },
         {
             "id": 3,
             "image": "featured-product-3.png",
-            "name": "MÁY KHOAN BLACK DECKER",
+            "name": "Máy quét Canon 3D",
             "price": 1550000,
             "rating": 4
         },
         {
             "id": 4,
             "image": "featured-product-4.png",
-            "name": "MÁY KHOAN BLACK DECKER",
-            "price": 1550000,
+            "name": "Máy quét Canon 3D",
+            "price": 1650000,
             "rating": 4
         },
         {
             "id": 5,
             "image": "featured-product-5.png",
-            "name": "MÁY KHOAN BLACK DECKER",
-            "price": 1550000,
+            "name": "Máy quét Canon 3D",
+            "price": 1200000,
             "rating": 4
         },
         {
             "id": 6,
             "image": "featured-product-6.png",
-            "name": "MÁY KHOAN BLACK DECKER",
-            "price": 1550000,
+            "name": "Máy quét Canon 3D",
+            "price": 1150000,
+            "rating": 4
+        },
+        {
+            "id": 7,
+            "image": "featured-product-6.png",
+            "name": "A Máy in phun khổ lớn",
+            "price": 1250000,
+            "rating": 5
+        },
+        {
+            "id": 8,
+            "image": "product-1.png",
+            "name": "Máy in phun khổ lớn",
+            "price": 1950000,
+            "rating": 4
+        },
+        {
+            "id": 9,
+            "image": "product-2.png",
+            "name": "B Máy in phun khổ lớn",
+            "price": 2000000,
+            "rating": 4
+        },
+        {
+            "id": 10,
+            "image": "product-3.png",
+            "name": "Máy in laser màu 3D",
+            "price": 3000000,
+            "rating": 4
+        },
+        {
+            "id": 11,
+            "image": "product-4.png",
+            "name": "C Motor R34C đa dụng",
+            "price": 3500000,
+            "rating": 4
+        },
+        {
+            "id": 12,
+            "image": "featured-product-2.png",
+            "name": "Máy quay thông minh N3",
+            "price": 2800000,
+            "rating": 4
+        },
+        {
+            "id": 13,
+            "image": "featured-product-3.png",
+            "name": "D Máy khoan, cắt CNC",
+            "price": 2600000,
+            "rating": 4
+        },
+        {
+            "id": 14,
+            "image": "product-5.png",
+            "name": "Máy mài, tiện DC 12V",
+            "price": 1800000,
+            "rating": 4
+        },
+        {
+            "id": 15,
+            "image": "product-6.png",
+            "name": "Máy phay đa năng CNC",
+            "price": 1650000,
+            "rating": 4
+        },
+        {
+            "id": 16,
+            "image": "product-7.png",
+            "name": "Máy hàn điện Alunima",
+            "price": 1250000,
+            "rating": 4
+        },
+        {
+            "id": 17,
+            "image": "featured-product-5.png",
+            "name": "Máy in phun khổ lớn",
+            "price": 1200000,
+            "rating": 4
+        },
+        {
+            "id": 18,
+            "image": "product-1.png",
+            "name": "Máy quét Canon 3D",
+            "price": 1500000,
             "rating": 4
         }
     ]
