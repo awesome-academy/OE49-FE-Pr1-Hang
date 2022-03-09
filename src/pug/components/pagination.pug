@@ -1,13 +1,13 @@
 mixin pagination
     nav(aria-label='pagination')
         ul.pagination
-            li.page-item.disabled
-                a.page-link(href='#', tabindex='-1') Trang trước
+            li.page-item
+                a.page-link(href='javascript:void(0)' data-page='prev' tabindex='-1') Trang trước
             li.page-item.active
-                a.page-link(href='#') 1
+                a.page-link(href='javascript:void(0)' data-page='1') 1
             li.page-item
-                a.page-link(href='#') 2
+                a.page-link(href='javascript:void(0)' data-page='2') 2
             li.page-item
-                a.page-link(href='#') 3
+                a.page-link(href='javascript:void(0)' data-page='3') 3
             li.page-item
-                a.page-link(href='#') Trang cuối
+                a.page-link(href='javascript:void(0)' data-page='next') Trang sau
