@@ -8,12 +8,29 @@ const products = JSON.parse(localStorage.getItem('products'));
 const sum = products && (products.reduce((sum, product) => sum + parseInt(product.quantity), 0))
 cart.setAttribute('data-total-cart', sum || 0);
 
-let limit, sort, order, name, minPrice, maxPrice, color
+let limit, sort, order, name, minPrice, maxPrice, color, page = 1
 
 export function showProducts(){
   let sortOptions  = document.getElementById('sort-options')
   let showOptions  = document.getElementById('show-options')
   let filterOptions  = document.querySelectorAll('.category li a')
+  let pagination  = document.querySelectorAll('.pagination li a')
+
+  pagination && pagination.forEach(item => {
+    item.addEventListener('click', () => {
+      let dataPage = item.getAttribute('data-page')
+
+      if(dataPage == 'next') {
+        page = parseInt(page) + 1
+      }else if(dataPage == 'prev'){
+        page =  parseInt(page) - 1 || 1
+      }else{
+        page = dataPage 
+      }
+
+      return loadData()
+    })
+  })
 
   filterOptions && filterOptions.forEach(filter => {
     filter.addEventListener('click', () => {
@@ -55,7 +72,7 @@ export function showProducts(){
 function loadData() {
   let PRODUCT_API_URL = new URL("http://localhost:4000/products"),
     params = {
-      _page: 1,
+      _page: page,
       _limit: limit || 18,
       _sort: sort || 'name',
       _order: order || 'asc',
