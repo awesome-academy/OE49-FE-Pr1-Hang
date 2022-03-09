@@ -1,6 +1,6 @@
-mixin categoryItem({ icon, title })
+mixin categoryItem({ icon, title, attribute= {}})
     li.category-item.transition
-        a.category-link(href="#")
+        a.category-link(href="javascript:void(0)")&attributes(attribute)
             i(class=icon)
             |#{title}
 

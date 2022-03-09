@@ -32,15 +32,15 @@ block content
                     aside.product__sidebar
                         +category({ icon: 'fas fa-bars', title: 'DANH MỤC SẢN PHẨM' })
                             each item in categoryProduct
-                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+                                +categoryItem({ icon: 'fas fa-th-large', title: item, attribute: { 'data-title': item }})
 
                         +category({ icon: 'fas fa-dollar-sign', title: 'TÌM THEO MỨC GIÁ' })
                             each item in categoryPrice
-                                +categoryItem({ icon: 'fas fa-th-large', title: item })
+                                +categoryItem({ icon: 'fas fa-th-large', title: item.price, attribute: { 'data-min-price': item.minPrice, 'data-max-price': item.maxPrice }})
 
                         +category({ icon: 'fas fa-paint-brush', title: 'TÌM THEO MÀU SẮC' })
                             each item in categoryColor
-                                +categoryItem({icon: item.icon, title: item.color})
+                                +categoryItem({icon: item.icon, title: item.color, attribute: { 'data-color': item.dataColor }})
                         
                         +category({ icon: 'fas fa-gift', title: 'SẢN PHẨM KHUYẾN MẠI' })
                             each item in categoryProductSale
